@@ -1,4 +1,5 @@
 using DefaultNamespace;
+using GloomSurvivor.Scripts.CameraLogic;
 using Infrastructure;
 using Services.Input;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Characters.MainPlayer
         private void Start()
         {
             _camera = Camera.main;
+            _camera.GetComponent<CameraFollow>().Follow(gameObject);
         }
 
         private void Update()
