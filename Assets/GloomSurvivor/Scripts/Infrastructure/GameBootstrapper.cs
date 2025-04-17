@@ -1,18 +1,17 @@
+using GloomSurvivor.Scripts.Infrastructure;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Infrastructure
 {
-    public class GameBootstrapper : MonoBehaviour
+    public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
         private Game _game;
 
         private void Awake()
         {
             _game = new Game();
-
-            SceneManager.LoadScene("Main");
-
+            _game.StateMachine.Enter<BootstrapState>();
+            
             DontDestroyOnLoad(this);
         }
     }

@@ -34,7 +34,6 @@ public class SkeletonKingAnimator : MonoBehaviour, IAnimatorStateReporter
 
     private void Update()
     {
-        Debug.Log("Velocirty: " + _characterController.velocity.magnitude);
         _animatorController.SetFloat(MoveHash, _characterController.velocity.magnitude, 0.1f, Time.deltaTime);
     }
     
