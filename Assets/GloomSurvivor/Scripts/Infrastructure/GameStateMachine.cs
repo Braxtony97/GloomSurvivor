@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Infrastructure;
 using UnityEngine.UI;
 
 namespace GloomSurvivor.Scripts.Infrastructure
@@ -9,11 +10,12 @@ namespace GloomSurvivor.Scripts.Infrastructure
         private readonly Dictionary<Type, IState> _states;
         private IState _currentState;
 
-        public GameStateMachine()
+        public GameStateMachine(SceneLoader sceneLoader)
         {
             _states = new Dictionary<Type, IState>()
             {
-                [typeof(BootstrapState)] = new BootstrapState(this),
+                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
+                [typeof(LoadSceneState)] = new LoadSceneState(this, sceneLoader)
             };
         }
         
