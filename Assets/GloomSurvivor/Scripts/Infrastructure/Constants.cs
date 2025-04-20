@@ -1,4 +1,4 @@
-namespace DefaultNamespace
+namespace GloomSurvivor.Scripts.Infrastructure
 {
     public static class Constants
     {

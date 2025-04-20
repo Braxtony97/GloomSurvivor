@@ -1,8 +1,9 @@
-using Infrastructure;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using UnityEngine;
 
 namespace GloomSurvivor.Scripts.Infrastructure
 {
-    public class LoadSceneState : IState
+    public class LoadSceneState : IPayloadState<string>
     {
         private const string Main = "Main";
         private readonly GameStateMachine _stateMachine;
@@ -14,9 +15,9 @@ namespace GloomSurvivor.Scripts.Infrastructure
             _sceneLoader = sceneLoader;
         }
 
-        public void Enter()
+        public void Enter(string payload)
         {
-            _sceneLoader.Load(Main);  
+            _sceneLoader.Load(payload);
         }
 
         public void Exit()

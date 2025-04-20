@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Infrastructure
+namespace GloomSurvivor.Scripts.Infrastructure
 {
     public class SceneLoader
     {

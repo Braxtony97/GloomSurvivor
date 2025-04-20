@@ -1,6 +1,5 @@
-using DefaultNamespace;
 using GloomSurvivor.Scripts.CameraLogic;
-using Infrastructure;
+using GloomSurvivor.Scripts.Infrastructure;
 using Services.Input;
 using UnityEngine;
 

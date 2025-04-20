@@ -1,4 +1,4 @@
-using Infrastructure;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using Services.Input;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ namespace GloomSurvivor.Scripts.Infrastructure
         }
 
         private void EnterLoadLevel() => 
-            _stateMachine.Enter<LoadSceneState>();
+            _stateMachine.Enter<LoadSceneState, string>("Main");
 
         public void Exit()
         {

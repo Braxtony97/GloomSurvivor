@@ -1,7 +1,7 @@
-using GloomSurvivor.Scripts.Infrastructure;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using UnityEngine;
 
-namespace Infrastructure
+namespace GloomSurvivor.Scripts.Infrastructure
 {
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {

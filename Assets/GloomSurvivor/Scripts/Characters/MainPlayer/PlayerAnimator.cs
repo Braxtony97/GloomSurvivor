@@ -1,5 +1,5 @@
 using GloomSurvivor.Scripts.AnimatorScripts.Base;
-using Infrastructure;
+using GloomSurvivor.Scripts.Infrastructure;
 using UnityEngine;
 
 namespace Characters.MainPlayer
