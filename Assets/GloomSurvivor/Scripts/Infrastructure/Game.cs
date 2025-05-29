@@ -1,4 +1,5 @@
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Infrastructure.States;
 using GloomSurvivor.Scripts.Services.Input;
 
 namespace GloomSurvivor.Scripts.Infrastructure
