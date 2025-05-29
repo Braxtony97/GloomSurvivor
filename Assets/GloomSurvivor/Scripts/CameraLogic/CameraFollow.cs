@@ -21,7 +21,8 @@ namespace GloomSurvivor.Scripts.CameraLogic
             transform.rotation = rotation;
         }
 
-        public void Follow(GameObject target) => _followingObject = target.transform;
+        public void Follow(GameObject target) => 
+            _followingObject = target.transform;
 
         private Vector3 FollowingPosition()
         {

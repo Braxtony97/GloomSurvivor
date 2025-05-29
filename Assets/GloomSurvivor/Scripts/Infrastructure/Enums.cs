@@ -1,4 +1,4 @@
-namespace Infrastructure
+namespace GloomSurvivor.Scripts.Infrastructure
 {
     public static class Enums
     {

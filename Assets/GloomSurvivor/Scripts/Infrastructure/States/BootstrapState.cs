@@ -1,8 +1,8 @@
-using Infrastructure;
-using Services.Input;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Services.Input;
 using UnityEngine;
 
-namespace GloomSurvivor.Scripts.Infrastructure
+namespace GloomSurvivor.Scripts.Infrastructure.States
 {
     public class BootstrapState : IState
     {
@@ -28,7 +28,7 @@ namespace GloomSurvivor.Scripts.Infrastructure
         }
 
         private void EnterLoadLevel() => 
-            _stateMachine.Enter<LoadSceneState>();
+            _stateMachine.Enter<LoadSceneState, string>("Main");
 
         public void Exit()
         {

@@ -1,7 +1,7 @@
-using GloomSurvivor.Scripts.Infrastructure;
-using Services.Input;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Services.Input;
 
-namespace Infrastructure
+namespace GloomSurvivor.Scripts.Infrastructure
 {
     public class Game
     {

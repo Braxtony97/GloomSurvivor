@@ -1,8 +1,7 @@
 using System;
 using GloomSurvivor.Scripts.AnimatorScripts.Base;
-using Infrastructure;
 using UnityEngine;
-using static Infrastructure.Enums;
+using static GloomSurvivor.Scripts.Infrastructure.Enums;
 
 public class SkeletonKingAnimator : MonoBehaviour, IAnimatorStateReporter
 {

@@ -1,4 +1,4 @@
-using static Infrastructure.Enums;
+using static GloomSurvivor.Scripts.Infrastructure.Enums;
 
 namespace GloomSurvivor.Scripts.AnimatorScripts.Base
 {
