@@ -1,4 +1,7 @@
+using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
+using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.Input;
 using UnityEngine;
 
@@ -19,12 +22,13 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         public void Enter()
         {
             RegisterService();
+            _sceneLoader.Load(BOOT, onLoaded: EnterLoadLevel);
         }
 
         private void RegisterService()
         {
             Game.InputService = RegisterInputService();
-            _sceneLoader.Load(BOOT, onLoaded: EnterLoadLevel);
+            ServiceLocator.Instance.RegisterSingle<IGameFactory>(new GameFactory(ServiceLocator.Instance.ResolveSingle<IAssetProvider>()));
         }
 
         private void EnterLoadLevel() => 

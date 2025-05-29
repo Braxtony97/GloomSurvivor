@@ -1,4 +1,5 @@
 using GloomSurvivor.Scripts.CameraLogic;
+using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
-            _gameFactory = new GameFactory();
         }
 
         public void Enter(string payload)
@@ -26,27 +26,10 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
         private void OnLoaded()
         {
-            var initialPoint = GameObject.FindWithTag("InitialPoint");
-            
-            var hero = Instantiate("Skeleton_King", initialPoint.transform.position);
-            Instantiate("Hud");
+            var hero = _gameFactory.CreateHero(GameObject.FindWithTag("InitialPoint"));
+            _gameFactory.CreateHud();
             
             CameraFollowHero(hero);
-
-            // GameObject hero = _gameFactory.CreateHero();
-            //_gameFactory.CreateHud();
-        }
-
-        private GameObject Instantiate(string path)
-        {
-            var prefab = Resources.Load<GameObject>(path);
-            return Object.Instantiate(prefab);
-        }
-        
-        private GameObject Instantiate(string path, Vector3 point)
-        {
-            var prefab = Resources.Load<GameObject>(path);
-            return Object.Instantiate(prefab, point, Quaternion.identity);
         }
 
         private void CameraFollowHero(GameObject hero)
