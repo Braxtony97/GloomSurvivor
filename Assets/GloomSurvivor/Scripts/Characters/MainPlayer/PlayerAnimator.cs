@@ -2,7 +2,7 @@ using GloomSurvivor.Scripts.AnimatorScripts.Base;
 using GloomSurvivor.Scripts.Infrastructure;
 using UnityEngine;
 
-namespace Characters.MainPlayer
+namespace GloomSurvivor.Scripts.Characters.MainPlayer
 {
     public class PlayerAnimator : MonoBehaviour, IAnimatorStateReporter
     {

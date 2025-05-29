@@ -1,8 +1,8 @@
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
-using Services.Input;
+using GloomSurvivor.Scripts.Services.Input;
 using UnityEngine;
 
-namespace GloomSurvivor.Scripts.Infrastructure
+namespace GloomSurvivor.Scripts.Infrastructure.States
 {
     public class BootstrapState : IState
     {

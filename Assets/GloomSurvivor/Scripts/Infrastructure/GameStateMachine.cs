@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Infrastructure.States;
 using UnityEngine.UI;
 
 namespace GloomSurvivor.Scripts.Infrastructure

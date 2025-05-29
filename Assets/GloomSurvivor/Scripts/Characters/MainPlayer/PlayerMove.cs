@@ -1,9 +1,9 @@
 using GloomSurvivor.Scripts.CameraLogic;
 using GloomSurvivor.Scripts.Infrastructure;
-using Services.Input;
+using GloomSurvivor.Scripts.Services.Input;
 using UnityEngine;
 
-namespace Characters.MainPlayer
+namespace GloomSurvivor.Scripts.Characters.MainPlayer
 {
     public class PlayerMove : MonoBehaviour
     {
@@ -11,7 +11,6 @@ namespace Characters.MainPlayer
         [SerializeField] private float _movementSpeed;
         
         private IInputService _inputService;
-        private Camera _camera;
 
         private void Awake()
         {
@@ -20,8 +19,6 @@ namespace Characters.MainPlayer
 
         private void Start()
         {
-            _camera = Camera.main;
-            _camera.GetComponent<CameraFollow>().Follow(gameObject);
         }
 
         private void Update()
@@ -30,7 +27,7 @@ namespace Characters.MainPlayer
 
             if (_inputService.Axis.sqrMagnitude > Constants.Epsilon)
             {
-                movementVector = _camera.transform.TransformDirection(_inputService.Axis);
+                movementVector = Camera.main.transform.TransformDirection(_inputService.Axis);
                 movementVector.y = 0;
                 movementVector.Normalize();
                 
