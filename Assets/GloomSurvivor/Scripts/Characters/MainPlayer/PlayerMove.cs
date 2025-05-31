@@ -1,5 +1,6 @@
 using GloomSurvivor.Scripts.CameraLogic;
 using GloomSurvivor.Scripts.Infrastructure;
+using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.Input;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
 
         private void Awake()
         {
-            _inputService = Game.InputService;
+            _inputService = ServiceLocator.Instance.ResolveSingle<IInputService>();
         }
 
         private void Start()
