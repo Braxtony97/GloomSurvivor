@@ -12,23 +12,27 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         private const string BOOT = "Boot";
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
+        private readonly ServiceLocator _serviceLocator;
 
-        public BootstrapState(GameStateMachine stateMachine, SceneLoader sceneLoader)
+        public BootstrapState(GameStateMachine stateMachine, SceneLoader sceneLoader, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
+            _serviceLocator = serviceLocator;
+            
+            RegisterService();
         }
 
         public void Enter()
         {
-            RegisterService();
             _sceneLoader.Load(BOOT, onLoaded: EnterLoadLevel);
         }
 
         private void RegisterService()
         {
-            Game.InputService = RegisterInputService();
-            ServiceLocator.Instance.RegisterSingle<IGameFactory>(new GameFactory(ServiceLocator.Instance.ResolveSingle<IAssetProvider>()));
+            _serviceLocator.RegisterSingle<IInputService>(InputService());
+            _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
+            _serviceLocator.RegisterSingle<IGameFactory>(new GameFactory(_serviceLocator.ResolveSingle<IAssetProvider>()));
         }
 
         private void EnterLoadLevel() => 
@@ -38,7 +42,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         {
         }
 
-        private static IInputService RegisterInputService()
+        private static IInputService InputService()
         {
             if (Application.isEditor)
                 return new StandaloneInputService();

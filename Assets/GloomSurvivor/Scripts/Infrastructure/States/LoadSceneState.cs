@@ -1,6 +1,7 @@
 using GloomSurvivor.Scripts.CameraLogic;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Services;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +12,13 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         private const string Main = "Main";
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
-        private readonly IGameFactory _gameFactory;
+        private IGameFactory _gameFactory;
 
-        public LoadSceneState(GameStateMachine stateMachine, SceneLoader sceneLoader)
+        public LoadSceneState(GameStateMachine stateMachine, SceneLoader sceneLoader, IGameFactory gameFactory)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
+            _gameFactory = gameFactory;
         }
 
         public void Enter(string payload)
