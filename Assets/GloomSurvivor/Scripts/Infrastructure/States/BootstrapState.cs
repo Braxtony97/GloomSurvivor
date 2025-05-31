@@ -3,6 +3,7 @@ using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.Input;
+using GloomSurvivor.Scripts.Services.PersistentProgress;
 using UnityEngine;
 
 namespace GloomSurvivor.Scripts.Infrastructure.States
@@ -21,6 +22,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _serviceLocator = serviceLocator;
             
             RegisterService();
+            
         }
 
         public void Enter()
@@ -33,6 +35,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _serviceLocator.RegisterSingle<IInputService>(InputService());
             _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
             _serviceLocator.RegisterSingle<IGameFactory>(new GameFactory(_serviceLocator.ResolveSingle<IAssetProvider>()));
+            _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
         }
 
         private void EnterLoadLevel() => 

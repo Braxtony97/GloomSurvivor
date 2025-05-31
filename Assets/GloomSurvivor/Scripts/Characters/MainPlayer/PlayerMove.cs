@@ -1,12 +1,14 @@
 using GloomSurvivor.Scripts.CameraLogic;
+using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Infrastructure;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.Input;
+using GloomSurvivor.Scripts.Services.PersistentProgress;
 using UnityEngine;
 
 namespace GloomSurvivor.Scripts.Characters.MainPlayer
 {
-    public class PlayerMove : MonoBehaviour
+    public class PlayerMove : MonoBehaviour, ISavedProgress
     {
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private float _movementSpeed;
@@ -34,10 +36,18 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
                 
                 transform.forward = movementVector;
             }
-            
+
             movementVector += Physics.gravity;
-            
             _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
+        }
+
+        public void UpdateProgress(PlayerProgress playerProgress)
+        {
+            playerProgress.WorldData.Position = transform.position.AsVectorData();
+        }
+
+        public void LoadProgress(PlayerProgress playerProgress)
+        {
         }
     }
 }
