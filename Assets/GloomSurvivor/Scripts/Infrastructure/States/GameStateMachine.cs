@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using GloomSurvivor.Scripts.Data.SaveLoad;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Services;
+using GloomSurvivor.Scripts.Services.PersistentProgress;
 
 namespace GloomSurvivor.Scripts.Infrastructure.States
 {
@@ -16,7 +18,8 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, serviceLocator),
-                [typeof(LoadSceneState)] = new LoadSceneState(this, sceneLoader, serviceLocator.ResolveSingle<IGameFactory>())
+                [typeof(LoadSceneState)] = new LoadSceneState(this, sceneLoader, serviceLocator.ResolveSingle<IGameFactory>()),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator.ResolveSingle<IPersistentProgressService>(), serviceLocator.ResolveSingle<ISaveLoadService>())
             };
         }
 
