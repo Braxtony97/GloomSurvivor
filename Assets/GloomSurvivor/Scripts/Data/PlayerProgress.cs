@@ -6,5 +6,9 @@ namespace GloomSurvivor.Scripts.Data
     public class PlayerProgress
     {
         public WorldData WorldData;
+
+        public PlayerProgress(string initialLevel)
+        {
+        }
     }
 }
