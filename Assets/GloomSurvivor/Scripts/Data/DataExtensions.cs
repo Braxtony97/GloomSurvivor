@@ -9,5 +9,8 @@ namespace GloomSurvivor.Scripts.Data
 
         public static Vector3 AsUnityVector(this Vector3Data vector) =>
             new Vector3(vector.X, vector.Y, vector.Z);
+
+        public static T ToDeserialized<T>(this string json) => 
+            JsonUtility.FromJson<T>(json);
     }
 }

@@ -13,5 +13,10 @@ namespace GloomSurvivor.Scripts.Data
             Position = position;
             Level = level;
         }
+
+        public PositionOnLevel(string level)
+        {
+            Level = level;
+        }
     }
 }

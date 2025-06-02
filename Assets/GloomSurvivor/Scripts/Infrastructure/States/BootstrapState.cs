@@ -1,3 +1,4 @@
+using GloomSurvivor.Scripts.Data.SaveLoad;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
@@ -34,12 +35,13 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         {
             _serviceLocator.RegisterSingle<IInputService>(InputService());
             _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
-            _serviceLocator.RegisterSingle<IGameFactory>(new GameFactory(_serviceLocator.ResolveSingle<IAssetProvider>()));
+            _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService());
             _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+            _serviceLocator.RegisterSingle<IGameFactory>(new GameFactory(_serviceLocator.ResolveSingle<IAssetProvider>()));
         }
 
         private void EnterLoadLevel() => 
-            _stateMachine.Enter<LoadSceneState, string>("Main");
+            _stateMachine.Enter<LoadProgressState>();
 
         public void Exit()
         {
