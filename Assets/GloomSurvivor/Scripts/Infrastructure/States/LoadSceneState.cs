@@ -23,6 +23,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
         public void Enter(string payload)
         {
+            _gameFactory.Cleanup();
             _sceneLoader.Load(payload, onLoaded: OnLoaded );
         }
 

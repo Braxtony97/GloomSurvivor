@@ -21,6 +21,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         public void Enter()
         {
             LoadProgressOrInitNew();
+            
             _gameStateMachine.Enter<LoadSceneState, string>(_progressService.PlayerProgress.WorldData.PositionOnLevel.Level);
         }
 
