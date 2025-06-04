@@ -2,6 +2,7 @@ using GloomSurvivor.Scripts.CameraLogic;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Services;
+using GloomSurvivor.Scripts.Services.PersistentProgress;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,12 +14,14 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
         private IGameFactory _gameFactory;
+        private readonly IPersistentProgressService _persistentProgressService;
 
-        public LoadSceneState(GameStateMachine stateMachine, SceneLoader sceneLoader, IGameFactory gameFactory)
+        public LoadSceneState(GameStateMachine stateMachine, SceneLoader sceneLoader, IGameFactory gameFactory, IPersistentProgressService persistentProgressService)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _gameFactory = gameFactory;
+            _persistentProgressService = persistentProgressService;
         }
 
         public void Enter(string payload)
@@ -28,6 +31,19 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         }
 
         private void OnLoaded()
+        {
+            InitGameWorld();
+
+            InfoemProgressReaders();
+        }
+
+        private void InfoemProgressReaders()
+        {
+            foreach (ISavedProgressReader progressReader in _gameFactory.ProgressReaders) 
+                progressReader.LoadProgress(_persistentProgressService.PlayerProgress);
+        }
+
+        private void InitGameWorld()
         {
             var hero = _gameFactory.CreateHero(GameObject.FindWithTag("InitialPoint"));
             _gameFactory.CreateHud();

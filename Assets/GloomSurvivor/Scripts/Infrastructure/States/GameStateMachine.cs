@@ -18,7 +18,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, serviceLocator),
-                [typeof(LoadSceneState)] = new LoadSceneState(this, sceneLoader, serviceLocator.ResolveSingle<IGameFactory>()),
+                [typeof(LoadSceneState)] = new LoadSceneState(this, sceneLoader, serviceLocator.ResolveSingle<IGameFactory>(), serviceLocator.ResolveSingle<IPersistentProgressService>()),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator.ResolveSingle<IPersistentProgressService>(), serviceLocator.ResolveSingle<ISaveLoadService>())
             };
         }
