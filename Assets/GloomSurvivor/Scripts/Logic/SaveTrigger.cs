@@ -8,11 +8,11 @@ namespace GloomSurvivor.Scripts.Logic
     {
         public BoxCollider Collider;
         
-        private SaveLoadService _saveLoadService;
+        private ISaveLoadService _saveLoadService;
 
         private void Awake()
         {
-            _saveLoadService = ServiceLocator.Instance.ResolveSingle<SaveLoadService>();
+            _saveLoadService = ServiceLocator.Instance.ResolveSingle<ISaveLoadService>();
         }
 
         private void OnTriggerEnter(Collider other)
