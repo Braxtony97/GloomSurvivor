@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c0eff1c7-9a29-4c01-80c5-9bd9d2fad20d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scenes/Boot.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scenes/Boot.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerMove.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/DataExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/DataExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/SaveLoad/SaveLoadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/SaveLoad/SaveLoadService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/BootstrapState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/GameStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/GameStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/LoadSceneState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/LoadSceneState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Logic/SaveTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Logic/SaveTrigger.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +20,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Editor/Tools.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -95,6 +98,7 @@
       <workItem from="1748893260022" duration="1836000" />
       <workItem from="1748899600406" duration="4193000" />
       <workItem from="1749067928164" duration="2461000" />
+      <workItem from="1749073249540" duration="2860000" />
     </task>
     <servers />
   </component>
