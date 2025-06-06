@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0eff1c7-9a29-4c01-80c5-9bd9d2fad20d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Characters/AnimatorControllers/Enemies/Skeleton_Mage_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Characters/AnimatorControllers/Enemies/Skeleton_Mage_Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Charge_Attack.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Charge_Attack.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Default_Attack.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Default_Attack.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Die.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Die.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Hit_Front.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Hit_Front.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Run_Loop.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Run_Loop.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Wall.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/Characters/SkeletonCrew/Skeleton_Mage/Animations/Skeleton_Mage_Wall.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Enums.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/GameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/GameFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/IGameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/IGameFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Enemies/Skeleton_Mage.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Enemies/Skeleton_Mage.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SkeletonKingAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SkeletonKingAnimator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
-    </list>
+    <list default="true" id="c0eff1c7-9a29-4c01-80c5-9bd9d2fad20d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +95,7 @@
       <workItem from="1749073249540" duration="2860000" />
       <workItem from="1749158306617" duration="1454000" />
       <workItem from="1749162084564" duration="877000" />
-      <workItem from="1749198237411" duration="8173000" />
+      <workItem from="1749198237411" duration="14744000" />
     </task>
     <servers />
   </component>
