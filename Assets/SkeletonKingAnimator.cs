@@ -37,7 +37,7 @@ public class SkeletonKingAnimator : MonoBehaviour, IAnimatorStateReporter
     }
     
     public bool IsAttacking => 
-        State == AnimatorState.Attack;
+        State == AnimatorState.AttackDefault;
     
     public void PlayHit() => 
         _animatorController.SetTrigger(HitHash);
@@ -58,7 +58,7 @@ public class SkeletonKingAnimator : MonoBehaviour, IAnimatorStateReporter
         if (stateHash == _idleStateHash)
             state = AnimatorState.Idle;
         else if (stateHash == _attackStateHash)
-            state = AnimatorState.Attack;
+            state = AnimatorState.AttackDefault;
         else if (stateHash == _walkingStateHash)
             state = AnimatorState.Walking;
         else if (stateHash == _deathStateHash)

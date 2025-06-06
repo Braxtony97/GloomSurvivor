@@ -11,7 +11,7 @@ namespace GloomSurvivor.Scripts.Infrastructure
         public enum AnimatorState
         {
             Idle,
-            Attack,
+            AttackDefault,
             Walking,
             Died,
             Running,

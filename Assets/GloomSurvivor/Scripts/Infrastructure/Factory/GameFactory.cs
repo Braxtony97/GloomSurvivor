@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
@@ -7,18 +8,25 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
-        private readonly IAssetProvider _assetProvider;
-        
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
+
+        public GameObject HeroGameObject { get; set; }
+        public event Action HeroCreated;
+
+        private readonly IAssetProvider _assetProvider;
 
         public GameFactory(IAssetProvider assetProvider)
         {
             _assetProvider = assetProvider;
         }
 
-        public GameObject CreateHero(GameObject initPoint) => 
-            InstantiateRegistered(AssetPath.HeroPath, initPoint.transform.position);
+        public GameObject CreateHero(GameObject initPoint)
+        {
+            HeroGameObject = InstantiateRegistered(AssetPath.HeroPath, initPoint.transform.position);
+            HeroCreated?.Invoke();
+            return HeroGameObject;
+        }
 
         public void CreateHud() =>
             InstantiateRegistered(AssetPath.HudPath);
