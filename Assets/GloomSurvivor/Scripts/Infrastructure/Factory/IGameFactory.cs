@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
@@ -9,6 +10,8 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
     {
         GameObject CreateHero(GameObject at);
         void CreateHud();
+        GameObject HeroGameObject { get; } // Temp
+        event Action HeroCreated; // Temp
         List<ISavedProgressReader> ProgressReaders { get; }
         List<ISavedProgress> ProgressWriters { get; }
         void Cleanup();
