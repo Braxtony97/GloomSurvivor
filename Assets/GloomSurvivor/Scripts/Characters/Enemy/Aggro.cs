@@ -7,7 +7,7 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
     public class Aggro : MonoBehaviour
     {
         [SerializeField] private TriggerObserver _triggerObserver;
-        [SerializeField] private AgentMoveToPlayer _followPlayer;
+        [SerializeField] private EnemyFollow _followPlayer;
 
         private float _cooldown = 3f;
         private Coroutine _cooldownCoroutine;

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace GloomSurvivor.Scripts.Characters.Enemy
 {
-    public class AgentMoveToPlayer : MonoBehaviour
+    public class AgentMoveToPlayer : EnemyFollow
     {
         [SerializeField] private NavMeshAgent _agent;
         

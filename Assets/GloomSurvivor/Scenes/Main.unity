@@ -1579,6 +1579,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15211f3ddbad08a44aad0920aa63f907, type: 3}
+--- !u!1001 &3383126192866574106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877711721479206361, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442855903865541621, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_Name
+      value: Skeleton_Crossbowman
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1598,3 +1655,4 @@ SceneRoots:
   - {fileID: 1794580608}
   - {fileID: 1329025702}
   - {fileID: 1233860769}
+  - {fileID: 3383126192866574106}
