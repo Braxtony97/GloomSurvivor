@@ -1725,6 +1725,7 @@ GameObject:
   - component: {fileID: 3864490419524769172}
   - component: {fileID: 7844145297888570286}
   - component: {fileID: 2432261360078291275}
+  - component: {fileID: 7855523323941924708}
   m_Layer: 0
   m_Name: Skeleton_Swordman
   m_TagString: Untagged
@@ -1847,6 +1848,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 3864490419524769172}
   _animator: {fileID: 7844145297888570286}
+--- !u!114 &7855523323941924708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206350644790170980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482edd2452ec48a3835fbf4e154adad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAnimator: {fileID: 7844145297888570286}
 --- !u!1 &8247235610465518538
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Linq;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Services;
 using UnityEngine;
@@ -11,9 +12,16 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
         private IGameFactory _factory;
         private Transform _heroTransform;
+        
         private float _attackCooldown = 3f;
         private float _currentCooldown;
+        
         private bool _isAttacking;
+        
+        private float _radius = 0.5f;
+        private Collider[] _hits = new Collider[1];
+        private int _layerMask = 1 << LayerMask.NameToLayer("Player");
+        private float _effectiveDistance = 0.5f;
 
         private void Awake()
         {
@@ -31,6 +39,23 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
         private void OnAttack()
         {
+            if (Hit(out Collider hit))
+            {
+                PhysicsDebug.DrawDebug(StartPoint(), _radius, 1f);
+            }
+        }
+
+        private bool Hit(out Collider hit)
+        {
+            var hitsCount = Physics.OverlapSphereNonAlloc(StartPoint(), _radius, _hits, _layerMask);
+
+            hit = _hits.FirstOrDefault();
+            return hitsCount > 0;
+        }
+
+        private Vector3 StartPoint()
+        {
+            return new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * _effectiveDistance;
         }
 
         private void OnAttackEnded()
