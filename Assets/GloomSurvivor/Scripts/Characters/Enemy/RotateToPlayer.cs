@@ -57,6 +57,5 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
         private void OnDestroy() => 
             _gameFactory.HeroCreated -= HeroCreated;
-
     }
 }

@@ -20,11 +20,15 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         
         private float _radius = 0.5f;
         private Collider[] _hits = new Collider[1];
-        private int _layerMask = 1 << LayerMask.NameToLayer("Player");
+
+        private int _layerMask;
+
         private float _effectiveDistance = 0.5f;
+        private bool _attackIsActive;
 
         private void Awake()
         {
+            _layerMask = 1 << LayerMask.NameToLayer("Player");
             _factory = ServiceLocator.Instance.ResolveSingle<IGameFactory>();
             _factory.HeroCreated += OnHeroCreated; // Temp
         }
@@ -53,6 +57,12 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
             return hitsCount > 0;
         }
 
+        public void EnableAttack() => 
+            _attackIsActive = true;
+
+        public void DisableAttack() => 
+            _attackIsActive = false;
+
         private Vector3 StartPoint()
         {
             return new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * _effectiveDistance;
@@ -71,7 +81,7 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         }
 
         private bool CanAttack() => 
-            _isAttacking && CooldownIsUp();
+            _attackIsActive && !_isAttacking && CooldownIsUp();
 
         private bool CooldownIsUp() => 
             _currentCooldown <= 0f;
