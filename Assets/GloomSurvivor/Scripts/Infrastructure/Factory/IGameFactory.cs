@@ -9,7 +9,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
     public interface IGameFactory : IService
     {
         GameObject CreateHero(GameObject at);
-        void CreateHud();
+        GameObject CreateHud();
         GameObject HeroGameObject { get; } // Temp
         event Action HeroCreated; // Temp
         List<ISavedProgressReader> ProgressReaders { get; }
