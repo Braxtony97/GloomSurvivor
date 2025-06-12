@@ -1,4 +1,4 @@
-using GloomSurvivor.Scripts.Data;
+    using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Data.SaveLoad;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
@@ -34,7 +34,14 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _progressService.PlayerProgress = _saveLoadService.LoadProgress() ?? NewProgress();
         }
 
-        private PlayerProgress NewProgress() => 
-            new("Main");
+        private PlayerProgress NewProgress()
+        {
+            var playerProgress = new PlayerProgress("Main");
+
+            playerProgress.PlayerData.MaxHP = 50f;
+            playerProgress.PlayerData.ResetHP();
+            
+            return playerProgress;
+        }
     }
 }

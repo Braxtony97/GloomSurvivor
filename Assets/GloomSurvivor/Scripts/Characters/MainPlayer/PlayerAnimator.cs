@@ -6,6 +6,13 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
 {
     public class PlayerAnimator : MonoBehaviour, IAnimatorStateReporter
     {
+        private static readonly int _hitHash = Animator.StringToHash("Hit");
+        
+        private Animator _animator;
+
+        private void Awake() => 
+            _animator = GetComponent<Animator>();
+
         public void EnteredState(int stateHash)
         {
             throw new System.NotImplementedException();
@@ -17,5 +24,8 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
         }
 
         public Enums.AnimatorState State { get; }
+        
+        public void PlayHit() => 
+            _animator.SetTrigger(_hitHash);
     }
 }

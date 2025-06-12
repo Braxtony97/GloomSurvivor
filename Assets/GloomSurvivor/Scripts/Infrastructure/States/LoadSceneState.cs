@@ -1,8 +1,10 @@
 using GloomSurvivor.Scripts.CameraLogic;
+using GloomSurvivor.Scripts.Characters.MainPlayer;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
+using GloomSurvivor.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,7 +48,9 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         private void InitGameWorld()
         {
             var hero = _gameFactory.CreateHero(GameObject.FindWithTag("InitialPoint"));
-            _gameFactory.CreateHud();
+            var hud = _gameFactory.CreateHud();
+
+            hud.GetComponentInChildren<ActorHpBarUI>().Construct(hero.GetComponent<PlayerHealth>());
             
             CameraFollowHero(hero);
         }

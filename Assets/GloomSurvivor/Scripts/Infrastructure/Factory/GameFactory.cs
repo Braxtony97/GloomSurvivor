@@ -28,7 +28,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             return HeroGameObject;
         }
 
-        public void CreateHud() =>
+        public GameObject CreateHud() =>
             InstantiateRegistered(AssetPath.HudPath);
 
         private void RegisterProgressWatchers(GameObject gameObject)
