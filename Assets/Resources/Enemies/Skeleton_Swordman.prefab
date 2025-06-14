@@ -1863,6 +1863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyAnimator: {fileID: 7844145297888570286}
+  _attackCooldown: 1.5
 --- !u!114 &7720383400858193920
 MonoBehaviour:
   m_ObjectHideFlags: 0

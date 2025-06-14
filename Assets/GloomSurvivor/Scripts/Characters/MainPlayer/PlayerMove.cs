@@ -21,10 +21,6 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
             _inputService = ServiceLocator.Instance.ResolveSingle<IInputService>();
         }
 
-        private void Start()
-        {
-        }
-
         private void Update()
         {
             Vector3 movementVector = Vector3.zero;

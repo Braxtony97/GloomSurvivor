@@ -30,8 +30,8 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
         }
 
 
+        [SerializeField] private PlayerAnimator _animator;
         private PlayerData _playerData;
-        private PlayerAnimator _animator;
 
 
         public void LoadProgress(PlayerProgress playerProgress)

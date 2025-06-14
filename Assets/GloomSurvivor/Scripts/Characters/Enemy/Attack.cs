@@ -1,4 +1,5 @@
 using System.Linq;
+using GloomSurvivor.Scripts.Characters.MainPlayer;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Services;
 using UnityEngine;
@@ -9,11 +10,11 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
     public class Attack : MonoBehaviour
     {
         [SerializeField] private EnemyAnimator _enemyAnimator;
+        [SerializeField] private float _attackCooldown = 3f;
 
         private IGameFactory _factory;
         private Transform _heroTransform;
-        
-        private float _attackCooldown = 3f;
+
         private float _currentCooldown;
         
         private bool _isAttacking;
@@ -25,6 +26,7 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
         private float _effectiveDistance = 0.5f;
         private bool _attackIsActive;
+        private float _damage = 10f;
 
         private void Awake()
         {
@@ -46,6 +48,11 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
             if (Hit(out Collider hit))
             {
                 PhysicsDebug.DrawDebug(StartPoint(), _radius, 1f);
+                
+                if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
+                    hit.transform.GetComponent<PlayerHealth>().TakeDamage(_damage);
+                }
             }
         }
 
