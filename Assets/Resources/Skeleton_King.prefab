@@ -1038,6 +1038,9 @@ GameObject:
   - component: {fileID: 660249524923257804}
   - component: {fileID: 2492095559190019550}
   - component: {fileID: 8732378923897508182}
+  - component: {fileID: 7712868700965161746}
+  - component: {fileID: 6779090285448984979}
+  - component: {fileID: 5634621079828538773}
   m_Layer: 10
   m_Name: Skeleton_King
   m_TagString: Untagged
@@ -1116,7 +1119,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 0
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -1185,6 +1188,47 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 3, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &7712868700965161746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4740232011944166458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79879d815284a0c8cd05f58af8382b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6779090285448984979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4740232011944166458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083ef90f28b541a784ba596dd354f583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 7712868700965161746}
+--- !u!114 &5634621079828538773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4740232011944166458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361e62e73b8a4cb398eca546e431d684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 6779090285448984979}
+  _move: {fileID: 660249524923257804}
+  _animator: {fileID: 7712868700965161746}
+  _deathEffect: {fileID: 0}
 --- !u!1 &4885606057451286561
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 namespace GloomSurvivor.Scripts.UI
 {
-    public class HpBarUI
+    public class HpBarUI : MonoBehaviour
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private Slider _slider;
         
         public void SetValue(float currentHP, float maxHP) =>
-            _image.fillAmount = currentHP / maxHP;
+            _slider.value = currentHP / maxHP;
     }
 }

@@ -7,6 +7,7 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
     public class PlayerAnimator : MonoBehaviour, IAnimatorStateReporter
     {
         private static readonly int _hitHash = Animator.StringToHash("Hit");
+        private static readonly int _dieHash = Animator.StringToHash("Die");
         
         private Animator _animator;
 
@@ -27,5 +28,8 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
         
         public void PlayHit() => 
             _animator.SetTrigger(_hitHash);
+
+        public void PlayDeath() => 
+            _animator.SetTrigger(_dieHash);
     }
 }
