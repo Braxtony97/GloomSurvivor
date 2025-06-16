@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace GloomSurvivor.Scripts.Characters.MainPlayer
 {
@@ -14,7 +12,7 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
 
         private bool _isDead;
 
-        private void Start() => 
+        private void Start() =>
             _health.OnHealthChanged += HealthChanged;
 
         private void HealthChanged()
@@ -27,11 +25,11 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
         {
             _move.enabled = false;
             _animator.PlayDeath();
-            
-            //Instantiate(_deathEffect, transform.position, Quaternion.identity);
-            
             _isDead = true;
         }
+
+        private void OnDiedAnimationEvent() => 
+            Instantiate(_deathEffect, transform.position + transform.forward * 1.3f + transform.up, Quaternion.identity);
 
         private void OnDestroy() => 
             _health.OnHealthChanged -= HealthChanged;
