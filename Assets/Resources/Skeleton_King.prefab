@@ -1228,7 +1228,7 @@ MonoBehaviour:
   _health: {fileID: 6779090285448984979}
   _move: {fileID: 660249524923257804}
   _animator: {fileID: 7712868700965161746}
-  _deathEffect: {fileID: 0}
+  _deathEffect: {fileID: 5642766282230003982, guid: b5c8ca7ed10b61e499cce8ec3b6e2e4c, type: 3}
 --- !u!1 &4885606057451286561
 GameObject:
   m_ObjectHideFlags: 0
