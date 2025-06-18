@@ -1041,6 +1041,7 @@ GameObject:
   - component: {fileID: 7712868700965161746}
   - component: {fileID: 6779090285448984979}
   - component: {fileID: 5634621079828538773}
+  - component: {fileID: 6495846654894703218}
   m_Layer: 10
   m_Name: Skeleton_King
   m_TagString: Untagged
@@ -1228,7 +1229,22 @@ MonoBehaviour:
   _health: {fileID: 6779090285448984979}
   _move: {fileID: 660249524923257804}
   _animator: {fileID: 7712868700965161746}
+  _attack: {fileID: 6495846654894703218}
   _deathEffect: {fileID: 5642766282230003982, guid: b5c8ca7ed10b61e499cce8ec3b6e2e4c, type: 3}
+--- !u!114 &6495846654894703218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4740232011944166458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c44d94e0604813bd7af180186c1a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 7712868700965161746}
+  _characterController: {fileID: 3050491265137822984}
 --- !u!1 &4885606057451286561
 GameObject:
   m_ObjectHideFlags: 0

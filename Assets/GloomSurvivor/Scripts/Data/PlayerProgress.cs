@@ -7,11 +7,13 @@ namespace GloomSurvivor.Scripts.Data
     {
         public PlayerData PlayerData; 
         public WorldData WorldData;
+        public PlayerStats PlayerStats;
 
         public PlayerProgress(string initialLevel)
         {
             PlayerData = new PlayerData();
             WorldData = new WorldData(initialLevel);
+            PlayerStats = new PlayerStats();
         }
     }
 }
