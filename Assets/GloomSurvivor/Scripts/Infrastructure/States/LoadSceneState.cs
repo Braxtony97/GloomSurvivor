@@ -50,7 +50,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             var hero = _gameFactory.CreateHero(GameObject.FindWithTag("InitialPoint"));
             var hud = _gameFactory.CreateHud();
 
-            hud.GetComponentInChildren<ActorHpBarUI>().Construct(hero.GetComponent<PlayerHealth>());
+            hud.GetComponentInChildren<ActorHpBarUI>().Construct(hero.GetComponent<IHealth>());
             
             CameraFollowHero(hero);
         }

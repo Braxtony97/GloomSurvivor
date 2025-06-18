@@ -1,5 +1,6 @@
 using System;
 using GloomSurvivor.Scripts.Data;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -7,10 +8,10 @@ using UnityEngine.TextCore.Text;
 namespace GloomSurvivor.Scripts.Characters.MainPlayer
 {
     [RequireComponent(typeof(PlayerAnimator))]
-    public class PlayerHealth : MonoBehaviour, ISavedProgress
+    public class PlayerHealth : MonoBehaviour, ISavedProgress, IHealth
     {
-        public Action OnHealthChanged;
-        public float CurrentHP
+        public event Action HealthChanged;
+        public float CurrentHealth
         {
             get => _playerData.CurrentHP;
             set
@@ -18,12 +19,12 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
                 if (_playerData.CurrentHP != value)
                 {
                     _playerData.CurrentHP = value;
-                    OnHealthChanged?.Invoke();
+                    HealthChanged?.Invoke();
                 }
             }
         }
 
-        public float MaxHP
+        public float MaxHealth
         {
             get => _playerData.MaxHP; 
             set => _playerData.MaxHP = value;
@@ -41,17 +42,17 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
-            _playerData.CurrentHP = CurrentHP;
-            _playerData.MaxHP = MaxHP;
+            _playerData.CurrentHP = CurrentHealth;
+            _playerData.MaxHP = MaxHealth;
         }
 
         public void TakeDamage(float damage)
         {
-            if (CurrentHP <= 0)
+            if (CurrentHealth <= 0)
                 return;
 
             _animator.PlayHit();
-            CurrentHP -= damage;    
+            CurrentHealth -= damage;    
         }
     }
 }

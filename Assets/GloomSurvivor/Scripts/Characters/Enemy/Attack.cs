@@ -1,6 +1,6 @@
 using System.Linq;
-using GloomSurvivor.Scripts.Characters.MainPlayer;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Services;
 using UnityEngine;
 
@@ -51,7 +51,7 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
                 
                 if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
-                    hit.transform.GetComponent<PlayerHealth>().TakeDamage(_damage);
+                    hit.transform.GetComponent<IHealth>().TakeDamage(_damage);
                 }
             }
         }

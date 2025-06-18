@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GloomSurvivor.Scripts.Characters.MainPlayer
 {
@@ -8,22 +9,24 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
         [SerializeField] private PlayerHealth _health;
         [SerializeField] private PlayerMove _move;
         [SerializeField] private PlayerAnimator _animator;
+        [FormerlySerializedAs("_attacke")] [SerializeField] private PlayerAttack _attack;
         [SerializeField] private GameObject _deathEffect;
 
         private bool _isDead;
 
         private void Start() =>
-            _health.OnHealthChanged += HealthChanged;
+            _health.HealthChanged += HealthChanged;
 
         private void HealthChanged()
         {
-            if (!_isDead && _health.CurrentHP <= 0)
+            if (!_isDead && _health.CurrentHealth <= 0)
                 Die();
         }
 
         private void Die()
         {
             _move.enabled = false;
+            _attack.enabled = false;
             _animator.PlayDeath();
             _isDead = true;
         }
@@ -32,6 +35,6 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
             Instantiate(_deathEffect, transform.position + transform.forward * 1.3f + transform.up, Quaternion.identity);
 
         private void OnDestroy() => 
-            _health.OnHealthChanged -= HealthChanged;
+            _health.HealthChanged -= HealthChanged;
     }
 }

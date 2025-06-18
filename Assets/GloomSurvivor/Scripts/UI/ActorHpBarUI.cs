@@ -1,4 +1,6 @@
+using System;
 using GloomSurvivor.Scripts.Characters.MainPlayer;
+using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using UnityEngine;
 
 namespace GloomSurvivor.Scripts.UI
@@ -7,19 +9,27 @@ namespace GloomSurvivor.Scripts.UI
     {
         [SerializeField] private HpBarUI _hpBarUI;
         
-        private PlayerHealth _playerHealth;
+        private IHealth _health;
         
-        public void Construct(PlayerHealth playerHealth)
+        public void Construct(IHealth playerHealth)
         {
-            _playerHealth = playerHealth;
+            _health = playerHealth;
 
-            _playerHealth.OnHealthChanged += UpdateHpBarHUD;
+            _health.HealthChanged += UpdateHpBarHUD;
+        }
+        
+        private void Start()
+        {
+            /*IHealth health = GetComponent<IHealth>();
+            
+            if (_health != null)
+                Construct(health);*/
         }
 
         private void UpdateHpBarHUD() => 
-            _hpBarUI.SetValue(_playerHealth.CurrentHP, _playerHealth.MaxHP);
+            _hpBarUI.SetValue(_health.CurrentHealth, _health.MaxHealth);
 
         private void OnDestroy() => 
-            _playerHealth.OnHealthChanged -= UpdateHpBarHUD;
+            _health.HealthChanged -= UpdateHpBarHUD;
     }
 }
