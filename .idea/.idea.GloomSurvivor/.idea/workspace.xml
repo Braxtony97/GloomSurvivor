@@ -6,13 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="c0eff1c7-9a29-4c01-80c5-9bd9d2fad20d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Characters/AnimatorControllers/Enemies/Skeleton_Crossbowman_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Characters/AnimatorControllers/Enemies/Skeleton_Crossbowman_Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Characters/AnimatorControllers/SkeletonKingController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Characters/AnimatorControllers/SkeletonKingController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/UI/ActorHpBarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/UI/ActorHpBarUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/UI/HpBarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/UI/HpBarUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Enemies/Skeleton_Swordman.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Enemies/Skeleton_Swordman.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Hud.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Hud.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Compass/HUD_FantasyWarrior_Compass02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Compass/HUD_FantasyWarrior_Compass02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Input_Interactions/HUD_FantasyWarrior_Interact_ContextSensitive02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Input_Interactions/HUD_FantasyWarrior_Interact_ContextSensitive02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Player_Health_Equipment/HUD_FantasyWarrior_HealthStats04.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Player_Health_Equipment/HUD_FantasyWarrior_HealthStats04.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Popups_Notifications/HUD_FantasyWarrior_Tooltip01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Popups_Notifications/HUD_FantasyWarrior_Tooltip01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/_CommonComponents/Button_FantasyWarrior_Simple01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/_CommonComponents/Button_FantasyWarrior_Simple01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/_PreMadeHUDs/Screen_FantasyWarrior_HUD_Survival01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/_PreMadeHUDs/Screen_FantasyWarrior_HUD_Survival01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_HUD_Additive.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_HUD_Additive.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_HUD_Multiply.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_HUD_Multiply.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Beams.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Beams.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Bubble.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Bubble.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_GlowHorizontal_Additive.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_GlowHorizontal_Additive.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Glow_Additive.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Glow_Additive.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_HalfCircle_Additive.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_HalfCircle_Additive.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_RitualCircle_Additive.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_RitualCircle_Additive.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Smoke.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Smoke.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Sparkle_Additive.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Materials/MAT_FantasyWarrior_ParticleFX_Sparkle_Additive.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +37,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0587e6e39f6c4b95892cffc527e48d5911200/03/bf17aeae/NavMeshAgent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9e6ebc012b944bf1ac9a620fd8e232d19b8a00/b4/70f5b572/AnimatorState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Games/Архитектура мобильных игр на UNITY для профессионалов/08/knowledge-is-power-master(1)/knowledge-is-power-master/src/KnowledgeIsPower/Assets/CodeBase/Constants.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Games/Архитектура мобильных игр на UNITY для профессионалов/08/knowledge-is-power-master(1)/knowledge-is-power-master/src/KnowledgeIsPower/Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputMoveGesture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Editor/Tools.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@603b5c2e4e5a/Runtime/UGUI/UI/Core/StencilMaterial.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -108,6 +123,9 @@
       <workItem from="1750260560024" duration="1897000" />
       <workItem from="1750280070115" duration="2475000" />
       <workItem from="1750540854123" duration="1499000" />
+      <workItem from="1751719889396" duration="1285000" />
+      <workItem from="1751759643060" duration="836000" />
+      <workItem from="1751796982981" duration="5827000" />
     </task>
     <servers />
   </component>

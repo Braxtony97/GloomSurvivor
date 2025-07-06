@@ -34,7 +34,7 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
 
         public void OnAttack_Normal()
         {
-            for (int i = 0; i < _hits.Length; i++)
+            for (int i = 0; i < Hit(); i++)
             {
                 _hits[i].transform.parent.GetComponent<IHealth>().TakeDamage(_playerStats.Damage);
             }
