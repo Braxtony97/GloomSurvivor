@@ -37,6 +37,6 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
             _animator.SetTrigger(_dieHash);
         
         public void PlayAttack() => 
-            _animator.SetTrigger(_attackNormalHash);
+            _animator.SetTrigger(_attackNormalHash); 
     }
 }

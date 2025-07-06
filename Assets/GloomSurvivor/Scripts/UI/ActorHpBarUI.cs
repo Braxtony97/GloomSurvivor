@@ -26,8 +26,10 @@ namespace GloomSurvivor.Scripts.UI
                 Construct(health);*/
         }
 
-        private void UpdateHpBarHUD() => 
+        private void UpdateHpBarHUD()
+        {
             _hpBarUI.SetValue(_health.CurrentHealth, _health.MaxHealth);
+        }
 
         private void OnDestroy() => 
             _health.HealthChanged -= UpdateHpBarHUD;

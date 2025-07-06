@@ -7,7 +7,11 @@ namespace GloomSurvivor.Scripts.UI
     {
         [SerializeField] private Slider _slider;
         
-        public void SetValue(float currentHP, float maxHP) =>
+        public void SetValue(float currentHP, float maxHP)
+        {
             _slider.value = currentHP / maxHP;
+            
+            Debug.Log(_slider.value);
+        }
     }
 }
