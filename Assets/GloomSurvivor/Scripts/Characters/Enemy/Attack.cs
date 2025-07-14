@@ -47,11 +47,10 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         {
             if (Hit(out Collider hit))
             {
-                PhysicsDebug.DrawDebug(StartPoint(), _radius, 1f);
-                
                 if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
-                    hit.transform.GetComponent<IHealth>().TakeDamage(_damage);
+                    PhysicsDebug.DrawDebug(StartPoint(), _radius, 1f);
+                    hit.transform.GetComponent<IHealth>().TakeDamage(_damage); // TEMP
                 }
             }
         }
@@ -70,10 +69,8 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         public void DisableAttack() => 
             _attackIsActive = false;
 
-        private Vector3 StartPoint()
-        {
-            return new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * _effectiveDistance;
-        }
+        private Vector3 StartPoint() => 
+            new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * _effectiveDistance;
 
         private void OnAttackEnded()
         {
