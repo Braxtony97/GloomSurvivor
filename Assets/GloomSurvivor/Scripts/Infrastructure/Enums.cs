@@ -17,5 +17,11 @@ namespace GloomSurvivor.Scripts.Infrastructure
             Running,
             Unknown
         }
+
+        public enum MonsterTypeId
+        {
+            Sworman = 0,
+            Mage = 10
+        }
     }
 }
