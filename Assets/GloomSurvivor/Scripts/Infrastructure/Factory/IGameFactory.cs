@@ -14,6 +14,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         event Action HeroCreated; // Temp
         List<ISavedProgressReader> ProgressReaders { get; }
         List<ISavedProgress> ProgressWriters { get; }
+        void Register(ISavedProgressReader progressReader);
         void Cleanup();
     }
 }
