@@ -20,7 +20,7 @@ namespace GloomSurvivor.Scripts.Infrastructure
 
         public enum MonsterTypeId
         {
-            Sworman = 0,
+            Swordman = 0,
             Mage = 10
         }
     }

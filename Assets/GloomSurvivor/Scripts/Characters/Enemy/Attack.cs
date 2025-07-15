@@ -16,14 +16,10 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         private Transform _heroTransform;
 
         private float _currentCooldown;
-        
         private bool _isAttacking;
-        
         private float _radius = 0.5f;
         private Collider[] _hits = new Collider[1];
-
         private int _layerMask;
-
         private float _effectiveDistance = 0.5f;
         private bool _attackIsActive;
         private float _damage = 10f;

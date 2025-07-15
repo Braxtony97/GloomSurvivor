@@ -2,6 +2,7 @@ using GloomSurvivor.Scripts.CameraLogic;
 using GloomSurvivor.Scripts.Characters.MainPlayer;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Logic;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using GloomSurvivor.Scripts.UI;
@@ -13,6 +14,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
     public class LoadSceneState : IPayloadState<string>
     {
         private const string Main = "Main";
+        private const string EnemySpawnerTag = "EnemySpawner";
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
         private IGameFactory _gameFactory;
@@ -36,10 +38,10 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         {
             InitGameWorld();
 
-            InfoemProgressReaders();
+            InformProgressReaders();
         }
 
-        private void InfoemProgressReaders()
+        private void InformProgressReaders()
         {
             foreach (ISavedProgressReader progressReader in _gameFactory.ProgressReaders) 
                 progressReader.LoadProgress(_persistentProgressService.PlayerProgress);
@@ -47,12 +49,23 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
         private void InitGameWorld()
         {
+            InitSpawners();
+            
             var hero = _gameFactory.CreateHero(GameObject.FindWithTag("InitialPoint"));
             var hud = _gameFactory.CreateHud();
 
             hud.GetComponentInChildren<ActorHpBarUI>().Construct(hero.GetComponent<IHealth>());
             
             CameraFollowHero(hero);
+        }
+
+        private void InitSpawners()
+        {
+            foreach (GameObject enemySpawner in GameObject.FindGameObjectsWithTag(EnemySpawnerTag))
+            {
+                var spawner = enemySpawner.GetComponent<EnemySpawner>();
+                _gameFactory.Register(spawner);
+            }
         }
 
         private void CameraFollowHero(GameObject hero)
