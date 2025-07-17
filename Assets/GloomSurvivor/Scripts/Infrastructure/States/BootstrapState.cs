@@ -2,6 +2,7 @@ using GloomSurvivor.Scripts.Data.SaveLoad;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Infrastructure.StaticData;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.Input;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
@@ -23,7 +24,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _serviceLocator = serviceLocator;
             
             RegisterService();
-            
         }
 
         public void Enter()
@@ -38,6 +38,15 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _serviceLocator.RegisterSingle<IGameFactory>(new GameFactory(_serviceLocator.ResolveSingle<IAssetProvider>()));
             _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService(_serviceLocator.ResolveSingle<IPersistentProgressService>(), _serviceLocator.ResolveSingle<IGameFactory>() ));
+
+            RegisterStaticData();
+        }
+
+        private void RegisterStaticData()
+        {
+            IStaticDataService staticDataService = new StaticDataService();
+            staticDataService.LoadMonsters();
+            _serviceLocator.RegisterSingle(staticDataService);
         }
 
         private void EnterLoadLevel() => 
