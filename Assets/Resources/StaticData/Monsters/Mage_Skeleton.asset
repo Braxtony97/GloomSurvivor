@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8444fe2dc2f6455495fcd51484b7ee0a, type: 3}
-  m_Name: Swordman_Skeleton
+  m_Name: Mage_Skeleton
   m_EditorClassIdentifier: 
-  MonsterType: 0
-  Hp: 40
-  Damage: 5
+  MonsterType: 10
+  Hp: 15
+  Damage: 7
   EffectiveDistance: 0.5
-  Prefab: {fileID: 8206350644790170980, guid: 806c9f050085860479b726d900454d5f, type: 3}
+  Prefab: {fileID: 7293448851384668894, guid: 3bbfae9f78abc6b4db922a4441fffded, type: 3}
   MoveSpeed: 1

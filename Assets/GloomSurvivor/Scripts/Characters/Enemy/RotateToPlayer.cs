@@ -10,16 +10,9 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         private Transform _heroTransform;
         private IGameFactory _gameFactory;
         private Vector3 _positionToLook;
-
-        private void Start()
-        {
-            _gameFactory = ServiceLocator.Instance.ResolveSingle<IGameFactory>(); // Temp
-
-            if (_gameFactory.HeroGameObject != null) 
-                InitializeHero();
-            else
-                _gameFactory.HeroCreated += HeroCreated;
-        }
+        
+        public void Construct(GameObject heroGameObject) => 
+            _heroTransform = heroGameObject.transform;
 
         private void Update()
         {
@@ -48,14 +41,5 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
             Vector3 positionDiff = _heroTransform.position - transform.position;
             _positionToLook = new Vector3(positionDiff.x, transform.position.y, positionDiff.z);
         }
-
-        private void HeroCreated() => 
-            InitializeHero();
-
-        private void InitializeHero() => 
-            _heroTransform = _gameFactory.HeroGameObject.transform;
-
-        private void OnDestroy() => 
-            _gameFactory.HeroCreated -= HeroCreated;
     }
 }

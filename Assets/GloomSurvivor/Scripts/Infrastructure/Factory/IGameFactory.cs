@@ -10,11 +10,10 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
     {
         GameObject CreateHero(GameObject at);
         GameObject CreateHud();
-        GameObject HeroGameObject { get; } // Temp
-        event Action HeroCreated; // Temp
         List<ISavedProgressReader> ProgressReaders { get; }
         List<ISavedProgress> ProgressWriters { get; }
         void Register(ISavedProgressReader progressReader);
         void Cleanup();
+        GameObject CreateMonster(Enums.MonsterTypeId monsterTypeId, Transform parent);
     }
 }
