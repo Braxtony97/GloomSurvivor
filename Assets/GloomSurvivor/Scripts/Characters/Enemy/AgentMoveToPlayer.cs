@@ -9,21 +9,13 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
     {
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private float _minDistance = 2f;
-        
+
         private Transform _heroTransform;
+
         private IGameFactory _gameFactory;
 
-        private void Start()
-        {
-            _agent.stoppingDistance = _minDistance;
-            
-            _gameFactory = ServiceLocator.Instance.ResolveSingle<IGameFactory>(); // Temp
-
-            if (_gameFactory.HeroGameObject != null) 
-                InitializeHero();
-            else
-                _gameFactory.HeroCreated += HeroCreated; 
-        }
+        public void Construct(GameObject heroGameObject) => 
+            _heroTransform = heroGameObject.transform;
 
         private void Update()
         {
@@ -31,16 +23,7 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
                 _agent.destination = _heroTransform.position;
         }
 
-        private void HeroCreated() => 
-            InitializeHero();
-
-        private void InitializeHero() => 
-            _heroTransform = _gameFactory.HeroGameObject.transform;
-
         private bool HeroNotReached() => 
             Vector3.Distance(_agent.transform.position, _heroTransform.position) >=  _minDistance;
-
-        private void OnDestroy() => 
-            _gameFactory.HeroCreated -= HeroCreated;
     }
 }

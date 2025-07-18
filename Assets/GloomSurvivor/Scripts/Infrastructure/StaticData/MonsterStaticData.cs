@@ -17,5 +17,8 @@ namespace GloomSurvivor.Scripts.Infrastructure.StaticData
         public float EffectiveDistance;
         
         public GameObject Prefab;
+        
+        [Range(1, 20)]
+        public float MoveSpeed;
     }
 }

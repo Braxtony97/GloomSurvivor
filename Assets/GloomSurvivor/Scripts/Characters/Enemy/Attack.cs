@@ -3,12 +3,16 @@ using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Services;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GloomSurvivor.Scripts.Characters.Enemy
 {
     [RequireComponent(typeof(EnemyAnimator))]
     public class Attack : MonoBehaviour
     {
+        public float Damage = 10f;
+        public float EffectiveDistance = 0.5f;
+        
         [SerializeField] private EnemyAnimator _enemyAnimator;
         [SerializeField] private float _attackCooldown = 3f;
 
@@ -20,16 +24,14 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         private float _radius = 0.5f;
         private Collider[] _hits = new Collider[1];
         private int _layerMask;
-        private float _effectiveDistance = 0.5f;
         private bool _attackIsActive;
-        private float _damage = 10f;
+        
 
-        private void Awake()
-        {
+        public void Construct(GameObject heroGameObject) => 
+            _heroTransform = heroGameObject.transform;
+
+        private void Awake() => 
             _layerMask = 1 << LayerMask.NameToLayer("Player");
-            _factory = ServiceLocator.Instance.ResolveSingle<IGameFactory>();
-            _factory.HeroCreated += OnHeroCreated; // Temp
-        }
 
         private void Update()
         {
@@ -46,7 +48,7 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
                 if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
                     PhysicsDebug.DrawDebug(StartPoint(), _radius, 1f);
-                    hit.transform.GetComponent<IHealth>().TakeDamage(_damage); // TEMP
+                    hit.transform.GetComponent<IHealth>().TakeDamage(Damage); // TEMP
                 }
             }
         }
@@ -66,7 +68,7 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
             _attackIsActive = false;
 
         private Vector3 StartPoint() => 
-            new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * _effectiveDistance;
+            new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * EffectiveDistance;
 
         private void OnAttackEnded()
         {
@@ -93,8 +95,5 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
             _isAttacking = true;
         }
-
-        private void OnHeroCreated() => 
-            _heroTransform = _factory.HeroGameObject.transform;
     }
 }
