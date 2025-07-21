@@ -1510,6 +1510,51 @@ Transform:
   - {fileID: 6951203917022684960}
   m_Father: {fileID: 6424892859731200140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7075648878620651473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7069235296740573404}
+  - component: {fileID: 8740432385388917987}
+  m_Layer: 0
+  m_Name: LootSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7069235296740573404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7075648878620651473}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.476, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8129885559615001527}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8740432385388917987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7075648878620651473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9964ba6fa4b54965aad1de1b5e949ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyDeath: {fileID: 1613204000526483685}
 --- !u!1 &7094905576232334738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,6 +1984,7 @@ Transform:
   - {fileID: 9160422278810007162}
   - {fileID: 6873801843143679196}
   - {fileID: 8123880374868962977}
+  - {fileID: 7069235296740573404}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5397783870102459608
@@ -2051,6 +2097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482edd2452ec48a3835fbf4e154adad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 10
+  EffectiveDistance: 0.5
   _enemyAnimator: {fileID: 7844145297888570286}
   _attackCooldown: 1.5
 --- !u!114 &7720383400858193920
@@ -2096,7 +2144,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 7017498273904923939}
   _animator: {fileID: 7844145297888570286}
-  _deathEffect: {fileID: 5985634496115995773, guid: 463cf9f7af4680240898f6aeba3fe3e6, type: 3}
+  _deathEffect: {fileID: 5824670795371433373, guid: f6fd568b816c64943a44efc3add3a881, type: 3}
+  _deathEffectScale: 2.8
+  _offsetDistance: 2.2
 --- !u!114 &887896420717044690
 MonoBehaviour:
   m_ObjectHideFlags: 0

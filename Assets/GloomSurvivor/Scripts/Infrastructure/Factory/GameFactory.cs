@@ -37,6 +37,12 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         public GameObject CreateHud() =>
             InstantiateRegistered(AssetPath.HudPath);
 
+        public GameObject CreateLoot()
+        {
+            GameObject loot = InstantiateRegistered(AssetPath.LootPath);
+            return loot;
+        }
+
         private void RegisterProgressWatchers(GameObject gameObject)
         {
             foreach (ISavedProgressReader progressReader in gameObject.GetComponentsInChildren<ISavedProgressReader>())
@@ -49,7 +55,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             RegisterProgressWatchers(gameObject);
             return gameObject;
         }
-        
+
         private GameObject InstantiateRegistered(string prefabPath)
         {
             var gameObject = _assetProvider.Instantiate(prefabPath);
@@ -79,6 +85,8 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             monster.GetComponent<AgentMoveToPlayer>().Construct(HeroGameObject);
             monster.GetComponent<RotateToPlayer>()?.Construct(HeroGameObject);
             monster.GetComponent<NavMeshAgent>().speed = monsterStaticData.MoveSpeed;
+
+            monster.GetComponentInChildren<LootSpawner>()?.Construct(this);
 
             Attack attack = monster.GetComponent<Attack>();
             attack.Construct(HeroGameObject);
