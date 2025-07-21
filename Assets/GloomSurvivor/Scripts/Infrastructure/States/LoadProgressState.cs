@@ -38,10 +38,10 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         {
             var playerProgress = new PlayerProgress("Main");
 
-            playerProgress.PlayerData.MaxHP = 50f;
+            playerProgress.PlayerData.MaxHP = 200f;
             playerProgress.PlayerData.ResetHP();
 
-            playerProgress.PlayerStats.Damage = 1f;
+            playerProgress.PlayerStats.Damage = 20f;
             playerProgress.PlayerStats.DamageRadius = 0.5f;
             
             return playerProgress;
