@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InitialPoint
   - EnemySpawner
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - AggroZone
   - AttackZone
   - Hittable
-  - 
+  - Pickup
   - 
   - 
   - 

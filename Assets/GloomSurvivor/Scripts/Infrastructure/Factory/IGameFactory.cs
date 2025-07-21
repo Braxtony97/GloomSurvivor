@@ -15,5 +15,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         void Register(ISavedProgressReader progressReader);
         void Cleanup();
         GameObject CreateMonster(Enums.MonsterTypeId monsterTypeId, Transform parent);
+        GameObject CreateLoot();
     }
 }

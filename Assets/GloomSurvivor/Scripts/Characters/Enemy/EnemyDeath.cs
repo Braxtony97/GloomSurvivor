@@ -11,7 +11,13 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         
         [SerializeField] private EnemyHealth _health;
         [SerializeField] private EnemyAnimator _animator;
+        
+        [Header("Death effect settings")]
         [SerializeField] private GameObject _deathEffect;
+        [SerializeField] private float _deathEffectScale = 2.5f;
+        [SerializeField] private float _offsetDistance = 1f;
+        
+        private GameObject _spawnedDeathEffect;
 
         private void Start()
         {
@@ -31,7 +37,8 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
             _health.HealthChanged -= HealthChanged;
             
             _animator.PlayDeath();
-            Instantiate(_deathEffect, transform.position, Quaternion.identity);
+            _spawnedDeathEffect = Instantiate(_deathEffect, transform.position - transform.forward * _offsetDistance, Quaternion.identity);
+            _spawnedDeathEffect.transform.localScale *= _deathEffectScale;
 
             StartCoroutine(DestroyTimer());
             
@@ -40,11 +47,16 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
         private IEnumerator DestroyTimer()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             Destroy(gameObject);
         }
 
-        private void OnDestroy() => 
+        private void OnDestroy()
+        {
             _health.HealthChanged -= HealthChanged;
+            
+            if (_spawnedDeathEffect != null)
+                Destroy(_spawnedDeathEffect);
+        }
     }
 }
