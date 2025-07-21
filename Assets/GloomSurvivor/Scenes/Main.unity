@@ -1346,9 +1346,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6951516345092243878, guid: 3bbfae9f78abc6b4db922a4441fffded, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951516345092243878, guid: 3bbfae9f78abc6b4db922a4441fffded, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7293448851384668894, guid: 3bbfae9f78abc6b4db922a4441fffded, type: 3}
       propertyPath: m_Name
       value: Skeleton_Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293448851384668894, guid: 3bbfae9f78abc6b4db922a4441fffded, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1706,7 +1718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636103493172907020, guid: fa3bf77f9f411e249917ccd0aef6bbd6, type: 3}
       propertyPath: MonsterTypeId
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1731,7 +1743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4879861056804041860, guid: 15211f3ddbad08a44aad0920aa63f907, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.739
       objectReference: {fileID: 0}
     - target: {fileID: 4879861056804041860, guid: 15211f3ddbad08a44aad0920aa63f907, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1822,6 +1834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_Crossbowman
       objectReference: {fileID: 0}
+    - target: {fileID: 7442855903865541621, guid: 4beeaa4093602674d8b279c2f62fa0bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1841,11 +1857,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7023645881792394426, guid: 806c9f050085860479b726d900454d5f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7023645881792394426, guid: 806c9f050085860479b726d900454d5f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8129885559615001527, guid: 806c9f050085860479b726d900454d5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1890,6 +1906,10 @@ PrefabInstance:
     - target: {fileID: 8206350644790170980, guid: 806c9f050085860479b726d900454d5f, type: 3}
       propertyPath: m_Name
       value: Skeleton_Swordman
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206350644790170980, guid: 806c9f050085860479b726d900454d5f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1948,6 +1968,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5636103493172907020, guid: fa3bf77f9f411e249917ccd0aef6bbd6, type: 3}
+      propertyPath: MonsterTypeId
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1972,8 +1996,8 @@ SceneRoots:
   - {fileID: 1794580608}
   - {fileID: 1329025702}
   - {fileID: 1233860769}
-  - {fileID: 3383126192866574106}
   - {fileID: 4891996880083442208}
+  - {fileID: 3383126192866574106}
   - {fileID: 6713356692989588245}
   - {fileID: 1266213840}
   - {fileID: 322089928}
