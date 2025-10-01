@@ -87,6 +87,12 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             monster.GetComponent<NavMeshAgent>().speed = monsterStaticData.MoveSpeed;
 
             LootSpawner lootSpawner = monster.GetComponentInChildren<LootSpawner>();
+
+            if (lootSpawner == null)
+            {
+                Debug.Log("NULL"); 
+            }
+            
             lootSpawner.SetLoot(monsterStaticData.MinLoot, monsterStaticData.MaxLoot);
             lootSpawner.Construct(this);
 
