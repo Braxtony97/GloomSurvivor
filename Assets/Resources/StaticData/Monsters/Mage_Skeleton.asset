@@ -15,6 +15,8 @@ MonoBehaviour:
   MonsterType: 10
   Hp: 15
   Damage: 7
+  MaxLoot: 1
+  MinLoot: 0
   EffectiveDistance: 0.5
   Prefab: {fileID: 7293448851384668894, guid: 3bbfae9f78abc6b4db922a4441fffded, type: 3}
   MoveSpeed: 4

@@ -1,3 +1,4 @@
+using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
     {
         [SerializeField] private EnemyDeath _enemyDeath;
         private IGameFactory _factory;
+        private int _lootMin;
+        private int _lootMax;
 
         public void Construct(IGameFactory factory) => 
             _factory = factory;
@@ -14,10 +17,21 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         private void Start() => 
             _enemyDeath.Died += SpawnLoot;
 
+        public void SetLoot(int minLoot, int maxLoot)
+        {
+            _lootMin = minLoot;
+            _lootMax = maxLoot;
+        }
+
         private void SpawnLoot()
         {
             GameObject loot = _factory.CreateLoot();
             loot.transform.position = transform.position;
+
+            Loot lootItem = new Loot()
+            {
+                Value = Random.Range(_lootMin, _lootMax)
+            };
         }
 
         private void OnDestroy() =>

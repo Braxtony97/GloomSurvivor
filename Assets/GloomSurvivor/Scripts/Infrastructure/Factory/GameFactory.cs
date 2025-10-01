@@ -86,7 +86,15 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             monster.GetComponent<RotateToPlayer>()?.Construct(HeroGameObject);
             monster.GetComponent<NavMeshAgent>().speed = monsterStaticData.MoveSpeed;
 
-            monster.GetComponentInChildren<LootSpawner>()?.Construct(this);
+            LootSpawner lootSpawner = monster.GetComponentInChildren<LootSpawner>();
+
+            if (lootSpawner == null)
+            {
+                Debug.Log("NULL"); 
+            }
+            
+            lootSpawner.SetLoot(monsterStaticData.MinLoot, monsterStaticData.MaxLoot);
+            lootSpawner.Construct(this);
 
             Attack attack = monster.GetComponent<Attack>();
             attack.Construct(HeroGameObject);
