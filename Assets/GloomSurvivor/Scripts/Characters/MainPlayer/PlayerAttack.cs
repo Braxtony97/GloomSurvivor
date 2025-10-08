@@ -40,8 +40,8 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
             }
         }
 
-        public void LoadProgress(PlayerProgress playerProgress) => 
-            _playerStats = playerProgress.PlayerStats;
+        public void LoadProgress(Progress progress) => 
+            _playerStats = progress.PlayerStats;
 
         private int Hit() => 
             Physics.OverlapSphereNonAlloc(StartPoint() + transform.forward, _playerStats.DamageRadius, _hits, _layerMask);

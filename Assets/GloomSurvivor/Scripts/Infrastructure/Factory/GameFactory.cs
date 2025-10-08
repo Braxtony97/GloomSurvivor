@@ -21,11 +21,13 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 
         private readonly IAssetProvider _assetProvider;
         private IStaticDataService _staticData;
+        private readonly IPersistentProgressService _progressService;
 
-        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData)
+        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData, IPersistentProgressService progressService)
         {
             _assetProvider = assetProvider;
             _staticData = staticData;
+            _progressService = progressService;
         }
 
         public GameObject CreateHero(GameObject initPoint)
@@ -37,9 +39,13 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         public GameObject CreateHud() =>
             InstantiateRegistered(AssetPath.HudPath);
 
-        public GameObject CreateLoot()
+        public LootHandler CreateLoot()
         {
-            GameObject loot = InstantiateRegistered(AssetPath.LootPath);
+            LootHandler loot = InstantiateRegistered(AssetPath.LootPath)
+                .GetComponent<LootHandler>();
+            
+            loot.Construct(_progressService.Progress.WorldData);
+            
             return loot;
         }
 

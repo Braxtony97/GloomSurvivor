@@ -21,13 +21,13 @@ namespace GloomSurvivor.Scripts.Data.SaveLoad
         {
             foreach (ISavedProgress progressWriter in _gameFactory.ProgressWriters)
             {
-                progressWriter.UpdateProgress(_progressService.PlayerProgress);
+                progressWriter.UpdateProgress(_progressService.Progress);
             }
             
-            PlayerPrefs.SetString(PROGRESS, _progressService.PlayerProgress.ToJson()); 
+            PlayerPrefs.SetString(PROGRESS, _progressService.Progress.ToJson()); 
         }
 
-        public PlayerProgress LoadProgress() => 
-            PlayerPrefs.GetString(PROGRESS)?.ToDeserialized<PlayerProgress>();
+        public Progress LoadProgress() => 
+            PlayerPrefs.GetString(PROGRESS)?.ToDeserialized<Progress>();
     }
 }

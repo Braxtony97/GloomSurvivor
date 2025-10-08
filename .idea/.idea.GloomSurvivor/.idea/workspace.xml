@@ -6,8 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="c0eff1c7-9a29-4c01-80c5-9bd9d2fad20d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/WorldData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/WorldData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootTriggerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootTriggerHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootHandler.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/MainPlayer/PlayerMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/PlayerProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/Progress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/PlayerProgress.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/Progress.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/SaveLoad/ISaveLoadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/SaveLoad/ISaveLoadService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/SaveLoad/SaveLoadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/SaveLoad/SaveLoadService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/GameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/GameFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/IGameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/IGameFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/BootstrapState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/LoadProgressState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/LoadProgressState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/LoadSceneState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/LoadSceneState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Logic/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Logic/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Services/PersistentProgress/IPersistentProgressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Services/PersistentProgress/IPersistentProgressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Services/PersistentProgress/ISavedProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Services/PersistentProgress/ISavedProgress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Services/PersistentProgress/PersistentProgressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Services/PersistentProgress/PersistentProgressService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Loots/Loot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Loots/Loot.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,6 +152,7 @@
       <workItem from="1758652776747" duration="33000" />
       <workItem from="1759353646945" duration="2049000" />
       <workItem from="1759871693327" duration="1693000" />
+      <workItem from="1759954150215" duration="4968000" />
     </task>
     <servers />
   </component>

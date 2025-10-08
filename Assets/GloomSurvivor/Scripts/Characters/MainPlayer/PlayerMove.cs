@@ -38,14 +38,14 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
             _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
         }
 
-        public void UpdateProgress(PlayerProgress playerProgress) => 
-            playerProgress.WorldData.PositionOnLevel = new PositionOnLevel(transform.position.AsVectorData(), CurrentLevel());
+        public void UpdateProgress(Progress progress) => 
+            progress.WorldData.PositionOnLevel = new PositionOnLevel(transform.position.AsVectorData(), CurrentLevel());
 
-        public void LoadProgress(PlayerProgress playerProgress)
+        public void LoadProgress(Progress progress)
         {
-            if (CurrentLevel() == playerProgress.WorldData.PositionOnLevel.Level)
+            if (CurrentLevel() == progress.WorldData.PositionOnLevel.Level)
             {
-                Vector3Data savedPosition = playerProgress.WorldData.PositionOnLevel.Position;
+                Vector3Data savedPosition = progress.WorldData.PositionOnLevel.Position;
                 if (savedPosition != null) 
                     Warp(to: savedPosition);
             }

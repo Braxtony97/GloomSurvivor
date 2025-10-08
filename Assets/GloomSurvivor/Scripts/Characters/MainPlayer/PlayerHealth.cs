@@ -35,12 +35,12 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
         private PlayerData _playerData;
 
 
-        public void LoadProgress(PlayerProgress playerProgress)
+        public void LoadProgress(Progress progress)
         {
-            _playerData = playerProgress.PlayerData;
+            _playerData = progress.PlayerData;
         }
 
-        public void UpdateProgress(PlayerProgress playerProgress)
+        public void UpdateProgress(Progress progress)
         {
             _playerData.CurrentHP = CurrentHealth;
             _playerData.MaxHP = MaxHealth;

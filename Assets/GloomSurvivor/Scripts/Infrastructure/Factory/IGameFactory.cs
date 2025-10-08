@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using GloomSurvivor.Scripts.Characters.Enemy;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using UnityEngine;
@@ -15,6 +16,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         void Register(ISavedProgressReader progressReader);
         void Cleanup();
         GameObject CreateMonster(Enums.MonsterTypeId monsterTypeId, Transform parent);
-        GameObject CreateLoot();
+        LootHandler CreateLoot();
     }
 }
