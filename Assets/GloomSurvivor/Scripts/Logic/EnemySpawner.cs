@@ -25,9 +25,9 @@ namespace GloomSurvivor.Scripts.Logic
             _factory = ServiceLocator.Instance.ResolveSingle<IGameFactory>();
         }
 
-        public void LoadProgress(PlayerProgress playerProgress)
+        public void LoadProgress(Progress progress)
         {
-            if (playerProgress.KillData.ClearedSpawners.Contains(_id))
+            if (progress.KillData.ClearedSpawners.Contains(_id))
                 Slain = true;
             else
                 Spawn();
@@ -48,10 +48,10 @@ namespace GloomSurvivor.Scripts.Logic
             Slain = true;
         }
 
-        public void UpdateProgress(PlayerProgress playerProgress)
+        public void UpdateProgress(Progress progress)
         {
             if(Slain)
-                playerProgress.KillData.ClearedSpawners.Add(_id);
+                progress.KillData.ClearedSpawners.Add(_id);
         }
     }
 }

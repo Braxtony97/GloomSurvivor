@@ -22,7 +22,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         {
             LoadProgressOrInitNew();
             
-            _gameStateMachine.Enter<LoadSceneState, string>(_progressService.PlayerProgress.WorldData.PositionOnLevel.Level);
+            _gameStateMachine.Enter<LoadSceneState, string>(_progressService.Progress.WorldData.PositionOnLevel.Level);
         }
 
         public void Exit()
@@ -31,18 +31,18 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
         private void LoadProgressOrInitNew()
         {
-            _progressService.PlayerProgress = _saveLoadService.LoadProgress() ?? NewProgress();
+            _progressService.Progress = _saveLoadService.LoadProgress() ?? NewProgress();
         }
 
-        private PlayerProgress NewProgress()
+        private Progress NewProgress()
         {
-            var playerProgress = new PlayerProgress("Main");
+            var playerProgress = new Progress("Main");
 
             playerProgress.PlayerData.MaxHP = 200f;
             playerProgress.PlayerData.ResetHP();
 
             playerProgress.PlayerStats.Damage = 20f;
-            playerProgress.PlayerStats.DamageRadius = 0.5f;
+            playerProgress.PlayerStats.DamageRadius = 1f;
             
             return playerProgress;
         }

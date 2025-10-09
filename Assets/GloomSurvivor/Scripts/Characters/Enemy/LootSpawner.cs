@@ -25,14 +25,15 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
         private void SpawnLoot()
         {
-            GameObject loot = _factory.CreateLoot();
-            loot.transform.position = transform.position;
+            LootHandler lootHandler = _factory.CreateLoot();
+            lootHandler.transform.position = transform.position;
 
-            Loot lootItem = new Loot()
-            {
-                Value = Random.Range(_lootMin, _lootMax)
-            };
+            Loot lootItem = SetValue();
+            lootHandler.Initialize(lootItem);
         }
+
+        private Loot SetValue() => 
+            new() { Value = Random.Range(_lootMin, _lootMax) };
 
         private void OnDestroy() =>
             _enemyDeath.Died -= SpawnLoot;

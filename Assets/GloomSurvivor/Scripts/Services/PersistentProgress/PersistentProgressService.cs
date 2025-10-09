@@ -4,6 +4,6 @@ namespace GloomSurvivor.Scripts.Services.PersistentProgress
 {
     public class PersistentProgressService : IPersistentProgressService
     {
-        public PlayerProgress PlayerProgress { get; set; }
+        public Progress Progress { get; set; }
     }
 }

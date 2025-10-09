@@ -44,7 +44,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         private void InformProgressReaders()
         {
             foreach (ISavedProgressReader progressReader in _gameFactory.ProgressReaders) 
-                progressReader.LoadProgress(_persistentProgressService.PlayerProgress);
+                progressReader.LoadProgress(_persistentProgressService.Progress);
         }
 
         private void InitGameWorld()

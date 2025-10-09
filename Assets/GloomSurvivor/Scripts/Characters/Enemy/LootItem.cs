@@ -9,5 +9,5 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         {
             
         }
-    }
+    } 
 }

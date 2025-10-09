@@ -21,11 +21,13 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 
         private readonly IAssetProvider _assetProvider;
         private IStaticDataService _staticData;
+        private readonly IPersistentProgressService _progressService;
 
-        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData)
+        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData, IPersistentProgressService progressService)
         {
             _assetProvider = assetProvider;
             _staticData = staticData;
+            _progressService = progressService;
         }
 
         public GameObject CreateHero(GameObject initPoint)
@@ -34,12 +36,23 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             return HeroGameObject;
         }
 
-        public GameObject CreateHud() =>
-            InstantiateRegistered(AssetPath.HudPath);
-
-        public GameObject CreateLoot()
+        public GameObject CreateHud()
         {
-            GameObject loot = InstantiateRegistered(AssetPath.LootPath);
+            GameObject hud = InstantiateRegistered(AssetPath.HudPath);
+            
+            LootCounterUI lootCounterUI = hud.GetComponentInChildren<LootCounterUI>();
+            lootCounterUI.Construct(_progressService.Progress.WorldData); 
+            
+            return hud;
+        }
+
+        public LootHandler CreateLoot()
+        {
+            LootHandler loot = InstantiateRegistered(AssetPath.LootPath)
+                .GetComponent<LootHandler>();
+            
+            loot.Construct(_progressService.Progress.WorldData);
+            
             return loot;
         }
 
@@ -87,12 +100,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             monster.GetComponent<NavMeshAgent>().speed = monsterStaticData.MoveSpeed;
 
             LootSpawner lootSpawner = monster.GetComponentInChildren<LootSpawner>();
-
-            if (lootSpawner == null)
-            {
-                Debug.Log("NULL"); 
-            }
-            
             lootSpawner.SetLoot(monsterStaticData.MinLoot, monsterStaticData.MaxLoot);
             lootSpawner.Construct(this);
 
