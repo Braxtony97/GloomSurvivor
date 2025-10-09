@@ -15,6 +15,8 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         private Loot _loot;
         private bool _picked;
         private WorldData _worldData;
+        
+        private float _lootValueLifetime = 1.5f;
 
         public void Construct(WorldData worldData) => 
             _worldData = worldData;
@@ -48,7 +50,7 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
         private IEnumerator StartDestroyTimer()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(_lootValueLifetime);
             
             Destroy(gameObject);
         }

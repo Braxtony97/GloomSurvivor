@@ -36,8 +36,15 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             return HeroGameObject;
         }
 
-        public GameObject CreateHud() =>
-            InstantiateRegistered(AssetPath.HudPath);
+        public GameObject CreateHud()
+        {
+            GameObject hud = InstantiateRegistered(AssetPath.HudPath);
+            
+            LootCounterUI lootCounterUI = hud.GetComponentInChildren<LootCounterUI>();
+            lootCounterUI.Construct(_progressService.Progress.WorldData); 
+            
+            return hud;
+        }
 
         public LootHandler CreateLoot()
         {

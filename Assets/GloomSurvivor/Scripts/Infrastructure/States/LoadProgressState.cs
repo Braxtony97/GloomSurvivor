@@ -42,7 +42,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             playerProgress.PlayerData.ResetHP();
 
             playerProgress.PlayerStats.Damage = 20f;
-            playerProgress.PlayerStats.DamageRadius = 0.5f;
+            playerProgress.PlayerStats.DamageRadius = 1f;
             
             return playerProgress;
         }

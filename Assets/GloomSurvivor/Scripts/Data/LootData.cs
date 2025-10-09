@@ -6,8 +6,12 @@ namespace GloomSurvivor.Scripts.Data
     public class LootData
     {
         public int Collected;
-        
-        public void Collect(Loot loot) => 
+        public Action Changed;
+
+        public void Collect(Loot loot)
+        {
             Collected += loot.Value;
+            Changed?.Invoke();
+        }
     }
 }
