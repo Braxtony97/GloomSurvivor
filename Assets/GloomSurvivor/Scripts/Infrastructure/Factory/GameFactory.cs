@@ -56,12 +56,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             return loot;
         }
 
-        private void RegisterProgressWatchers(GameObject gameObject)
-        {
-            foreach (ISavedProgressReader progressReader in gameObject.GetComponentsInChildren<ISavedProgressReader>())
-                Register(progressReader);
-        }
-
         private GameObject InstantiateRegistered(string prefabPath, Vector3 at)
         {
             var gameObject = _assetProvider.Instantiate(prefabPath, at);
@@ -74,6 +68,12 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             var gameObject = _assetProvider.Instantiate(prefabPath);
             RegisterProgressWatchers(gameObject);
             return gameObject;
+        }
+
+        private void RegisterProgressWatchers(GameObject gameObject)
+        {
+            foreach (ISavedProgressReader progressReader in gameObject.GetComponentsInChildren<ISavedProgressReader>())
+                Register(progressReader);
         }
 
         public void Register(ISavedProgressReader progressReader)

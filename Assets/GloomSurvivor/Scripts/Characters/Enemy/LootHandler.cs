@@ -1,5 +1,7 @@
 using System.Collections;
 using GloomSurvivor.Scripts.Data;
+using GloomSurvivor.Scripts.Data.SaveLoad;
+using GloomSurvivor.Scripts.Services;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +19,10 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
         private WorldData _worldData;
         
         private float _lootValueLifetime = 1.5f;
+        private ISaveLoadService _saveLoadService;
+
+        public void Awake() => 
+            _saveLoadService = ServiceLocator.Instance.ResolveSingle<ISaveLoadService>();
 
         public void Construct(WorldData worldData) => 
             _worldData = worldData;

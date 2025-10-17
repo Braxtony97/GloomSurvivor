@@ -6,28 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0eff1c7-9a29-4c01-80c5-9bd9d2fad20d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GloomSurvivor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Animation/Animator/TextLoot.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Animation/Animator/TextLoot.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/UI/PickupPopup_Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Prefabs/UI/PickupPopup_Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Characters/Enemy/LootItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/LootData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/LootData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/WorldData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Data/WorldData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/GameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/Factory/GameFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/LoadProgressState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Infrastructure/States/LoadProgressState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/UI/HpBarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/UI/HpBarUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Enemies/Skeleton_Swordman.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Enemies/Skeleton_Swordman.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Hud.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Hud.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Loots/Loot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Loots/Loot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/StaticData/Monsters/Swordman_Skeleton.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/StaticData/Monsters/Swordman_Skeleton.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Input_Interactions/_Parts/Input_FantasyWarrior_KeyButton01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Input_Interactions/_Parts/Input_FantasyWarrior_KeyButton01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Popups_Notifications/HUD_FantasyWarrior_Tooltip01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Popups_Notifications/HUD_FantasyWarrior_Tooltip01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Portraits/HUD_FantasyWarrior_Companions02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/Portraits/HUD_FantasyWarrior_Companions02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/_CommonComponents/Button_FantasyWarrior_Simple01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Prefabs/_CommonComponents/Button_FantasyWarrior_Simple01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Samples/Prefabs/AssetDemo_FantasyWarrior_Button_Basic01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Samples/Prefabs/AssetDemo_FantasyWarrior_Button_Basic01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Samples/Prefabs/AssetDemo_FantasyWarrior_Navigation_Bottom01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Samples/Prefabs/AssetDemo_FantasyWarrior_Navigation_Bottom01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Samples/Prefabs/Navigation_FantasyWarrior_Overlay01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Synty/InterfaceFantasyWarriorHUD/Samples/Prefabs/Navigation_FantasyWarrior_Overlay01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +18,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://C:/Program Files/Unity/Hub/Editor/6000.0.37f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.render-pipelines.universal/Runtime/Tiling/InclusiveRange.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e6aa588f9882420485fca490ded58a721dee00/c7/970710a9/PlayerPrefs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Games/Архитектура мобильных игр на UNITY для профессионалов/08/knowledge-is-power-master(1)/knowledge-is-power-master/src/KnowledgeIsPower/Assets/CodeBase/Constants.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Games/Архитектура мобильных игр на UNITY для профессионалов/08/knowledge-is-power-master(1)/knowledge-is-power-master/src/KnowledgeIsPower/Assets/Plugins/SimpleInput/Scripts/AxisInputs/AxisInputMoveGesture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GloomSurvivor/Scripts/Editor/Tools.cs" root0="FORCE_HIGHLIGHTING" />
@@ -158,6 +138,8 @@
       <workItem from="1759954150215" duration="4968000" />
       <workItem from="1760014087422" duration="2698000" />
       <workItem from="1760035621654" duration="1709000" />
+      <workItem from="1760205491252" duration="1319000" />
+      <workItem from="1760299447419" duration="1554000" />
     </task>
     <servers />
   </component>
