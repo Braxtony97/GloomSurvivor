@@ -1,7 +1,5 @@
-using System;
 using GloomSurvivor.Scripts.Characters.Enemy;
 using GloomSurvivor.Scripts.Data;
-using GloomSurvivor.Scripts.Infrastructure;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;

@@ -27,11 +27,11 @@ namespace GloomSurvivor.Scripts.Data.SaveLoad
             
             PlayerPrefs.SetString(PROGRESS, _progressService.Progress.ToJson());
 
-            //string filePath = Path.Combine(Application.persistentDataPath, "save.json");
-            //string json = _progressService.Progress.ToJson();
-            //File.WriteAllText(filePath, json);
+            string filePath = Path.Combine(Application.persistentDataPath, "save.json");
+            string json = _progressService.Progress.ToJson();
+            File.WriteAllText(filePath, json);
 
-            //Debug.Log($"Progress saved to: {filePath}");
+            Debug.Log($"Progress saved to: {filePath}");
         }
 
         public Progress LoadProgress() => 

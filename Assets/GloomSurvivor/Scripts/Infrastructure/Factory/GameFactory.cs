@@ -1,11 +1,12 @@
-using System;
-using System.Collections.Generic;
 using GloomSurvivor.Scripts.Characters.Enemy;
+using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Infrastructure.StaticData;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using GloomSurvivor.Scripts.UI;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Object = UnityEngine.Object;
@@ -109,6 +110,21 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             attack.EffectiveDistance = monsterStaticData.EffectiveDistance;
 
             return monster;
+        }
+
+        public void RestoreLoot(Progress progress)
+        {
+            progress.WorldData.WorldLootData.ActiveLoots.RemoveAll(loot => loot.Picked);
+
+            foreach (var lootData in progress.WorldData.WorldLootData.ActiveLoots)
+            {
+                if (!lootData.Picked)
+                {
+                    LootHandler loot = CreateLoot();
+                    loot.transform.position = lootData.Position;
+                    loot.InitializeWithExistingData(lootData, new Loot { Value = lootData.Value }); 
+                }
+            }
         }
 
         public void Cleanup()
