@@ -16,11 +16,8 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
             get => _playerData.CurrentHP;
             set
             {
-                if (_playerData.CurrentHP != value)
-                {
-                    _playerData.CurrentHP = value;
-                    HealthChanged?.Invoke();
-                }
+                _playerData.CurrentHP = value;
+                HealthChanged?.Invoke();
             }
         }
 
@@ -38,6 +35,7 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
         public void LoadProgress(Progress progress)
         {
             _playerData = progress.PlayerData;
+            CurrentHealth = _playerData.CurrentHP;
         }
 
         public void UpdateProgress(Progress progress)

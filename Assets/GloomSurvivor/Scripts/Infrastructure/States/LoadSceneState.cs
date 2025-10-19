@@ -55,6 +55,8 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             var hud = _gameFactory.CreateHud();
 
             hud.GetComponentInChildren<ActorHpBarUI>().Construct(hero.GetComponent<IHealth>());
+
+            _gameFactory.RestoreLoot(_persistentProgressService.Progress);
             
             CameraFollowHero(hero);
         }

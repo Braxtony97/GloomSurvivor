@@ -7,5 +7,6 @@ namespace GloomSurvivor.Scripts.Data
     public class KillData
     {
         public List<string> ClearedSpawners = new List<string>();
+        public List<string> ClearedLoots = new List<string>();
     }
 }

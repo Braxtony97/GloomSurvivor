@@ -1,5 +1,6 @@
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
+using System.IO;
 using UnityEngine;
 
 namespace GloomSurvivor.Scripts.Data.SaveLoad
@@ -24,7 +25,13 @@ namespace GloomSurvivor.Scripts.Data.SaveLoad
                 progressWriter.UpdateProgress(_progressService.Progress);
             }
             
-            PlayerPrefs.SetString(PROGRESS, _progressService.Progress.ToJson()); 
+            PlayerPrefs.SetString(PROGRESS, _progressService.Progress.ToJson());
+
+            string filePath = Path.Combine(Application.persistentDataPath, "save.json");
+            string json = _progressService.Progress.ToJson();
+            File.WriteAllText(filePath, json);
+
+            Debug.Log($"Progress saved to: {filePath}");
         }
 
         public Progress LoadProgress() => 
