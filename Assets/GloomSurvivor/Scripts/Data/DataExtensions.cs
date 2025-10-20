@@ -15,7 +15,13 @@ namespace GloomSurvivor.Scripts.Data
             vector.y += y;
             return vector;
         }
-        
+
+        public static Vector3 AddX(this Vector3 vector, float x)
+        {
+            vector.x += x;
+            return vector;
+        }
+
         public static string ToJson(this object obj) =>
             JsonUtility.ToJson(obj);
 
