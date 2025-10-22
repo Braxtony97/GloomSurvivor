@@ -6,5 +6,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.StaticData
     {
         void LoadMonsters();
         MonsterStaticData GetMonster(Enums.MonsterTypeId monsterId);
+        LevelStaticData GetLevel(string sceneKey);
     }
 }

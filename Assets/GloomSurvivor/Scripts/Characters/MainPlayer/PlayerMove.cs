@@ -47,14 +47,15 @@ namespace GloomSurvivor.Scripts.Characters.MainPlayer
             {
                 Vector3Data savedPosition = progress.WorldData.PositionOnLevel.Position;
                 if (savedPosition != null) 
-                    Warp(to: savedPosition);
+                    Warp(savedPosition);
             }
         }
 
         private void Warp(Vector3Data to)
         {
             _characterController.enabled = false;
-            transform.position = to.AsUnityVector().AddY(_characterController.height);
+            // TODO: need replace -3
+            transform.position = to.AsUnityVector().AddY(_characterController.height).AddX(-3);
             _characterController.enabled = true;
         }
 

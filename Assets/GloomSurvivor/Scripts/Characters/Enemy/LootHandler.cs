@@ -80,6 +80,9 @@ namespace GloomSurvivor.Scripts.Characters.Enemy
 
         public void UpdateProgress(Progress progress)
         {
+            if (_picked) 
+                return;
+
             WorldLootItemData itemData = progress.WorldData.WorldLootData.ActiveLoots.Find(x => x.Id == _id);
 
             if (itemData != null)
