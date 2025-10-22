@@ -1,31 +1,27 @@
 using GloomSurvivor.Scripts.Characters.Enemy;
 using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
-using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using UnityEngine;
 using static GloomSurvivor.Scripts.Infrastructure.Enums;
 
 namespace GloomSurvivor.Scripts.Logic
 {
-    public class EnemySpawner : MonoBehaviour, ISavedProgress
+    public class SpawnPoint : MonoBehaviour, ISavedProgress
     {
         public bool Slain;
-        public MonsterTypeId MonsterTypeId;
-        
-        private string _id;
+        public MonsterTypeId MonsterTypeId; 
+        public string Id { get; set; }
+
         private IGameFactory _factory;
         private EnemyDeath _enemyDeath;
 
-        private void Awake()
-        {
-            _id = GetComponent<UniqueIdEnemySpawner>().Id;
-            _factory = ServiceLocator.Instance.ResolveSingle<IGameFactory>();
-        }
+        public void Construct(IGameFactory gameFactory) => 
+            _factory = gameFactory;
 
         public void LoadProgress(Progress progress)
         {
-            if (progress.KillData.ClearedSpawners.Contains(_id))
+            if (progress.KillData.ClearedSpawners.Contains(Id))
                 Slain = true;
             else
                 Spawn();
@@ -49,7 +45,7 @@ namespace GloomSurvivor.Scripts.Logic
         public void UpdateProgress(Progress progress)
         {
             if(Slain)
-                progress.KillData.ClearedSpawners.Add(_id);
+                progress.KillData.ClearedSpawners.Add(Id);
         }
     }
 }

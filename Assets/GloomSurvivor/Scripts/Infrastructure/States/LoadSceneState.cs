@@ -2,11 +2,13 @@ using GloomSurvivor.Scripts.CameraLogic;
 using GloomSurvivor.Scripts.Characters.MainPlayer;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Infrastructure.StaticData;
 using GloomSurvivor.Scripts.Logic;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using GloomSurvivor.Scripts.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace GloomSurvivor.Scripts.Infrastructure.States
@@ -19,13 +21,16 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         private readonly SceneLoader _sceneLoader;
         private IGameFactory _gameFactory;
         private readonly IPersistentProgressService _persistentProgressService;
+        private readonly IStaticDataService _staticDataService;
 
-        public LoadSceneState(GameStateMachine stateMachine, SceneLoader sceneLoader, IGameFactory gameFactory, IPersistentProgressService persistentProgressService)
+        public LoadSceneState(GameStateMachine stateMachine, SceneLoader sceneLoader, 
+            IGameFactory gameFactory, IPersistentProgressService persistentProgressService, IStaticDataService staticDataService)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _gameFactory = gameFactory;
             _persistentProgressService = persistentProgressService;
+            _staticDataService = staticDataService;
         }
 
         public void Enter(string payload)
@@ -63,10 +68,12 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
         private void InitSpawners()
         {
-            foreach (GameObject enemySpawner in GameObject.FindGameObjectsWithTag(EnemySpawnerTag))
+            string sceneKey = SceneManager.GetActiveScene().name;
+            LevelStaticData levelData = _staticDataService.GetLevel(sceneKey);
+
+            foreach (EnemySpawnerData spawner in levelData.EnemySpawners)
             {
-                var spawner = enemySpawner.GetComponent<EnemySpawner>();
-                _gameFactory.Register(spawner);
+                _gameFactory.CreateSpawner(spawner);
             }
         }
 

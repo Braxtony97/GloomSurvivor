@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using GloomSurvivor.Scripts.Characters.Enemy;
 using GloomSurvivor.Scripts.Data;
+using GloomSurvivor.Scripts.Infrastructure.StaticData;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using UnityEngine;
@@ -19,5 +20,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         GameObject CreateMonster(Enums.MonsterTypeId monsterTypeId, Transform parent);
         LootHandler CreateLoot();
         void RestoreLoot(Progress progress);
+        void CreateSpawner(EnemySpawnerData spawner);
     }
 }

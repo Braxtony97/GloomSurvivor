@@ -3,6 +3,7 @@ using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
 using GloomSurvivor.Scripts.Infrastructure.StaticData;
+using GloomSurvivor.Scripts.Logic;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using GloomSurvivor.Scripts.UI;
 using System;
@@ -55,6 +56,17 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             loot.Construct(_progressService.Progress.WorldData);
             
             return loot;
+        }
+
+        public void CreateSpawner(EnemySpawnerData spawnerData)
+        {
+            SpawnPoint spawner = InstantiateRegistered(AssetPath.SpawnerPath, spawnerData.Position)
+                .GetComponent<SpawnPoint>();
+
+            spawner.Construct(this);
+
+            spawner.Id = spawnerData.Id;
+            spawner.MonsterTypeId = spawnerData.Type;
         }
 
         private GameObject InstantiateRegistered(string prefabPath, Vector3 at)
