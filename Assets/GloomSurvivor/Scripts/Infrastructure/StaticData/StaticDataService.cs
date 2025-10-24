@@ -9,7 +9,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.StaticData
         private Dictionary<Enums.MonsterTypeId, MonsterStaticData> _monsters;
         private Dictionary<string, LevelStaticData> _levels;
 
-        public void LoadMonsters()
+        public void Load()
         {
             _monsters = Resources
                 .LoadAll<MonsterStaticData>("StaticData/Monsters")

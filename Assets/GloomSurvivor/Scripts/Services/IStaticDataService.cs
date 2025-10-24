@@ -4,7 +4,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.StaticData
 {
     public interface IStaticDataService : IService
     {
-        void LoadMonsters();
+        void Load();
         MonsterStaticData GetMonster(Enums.MonsterTypeId monsterId);
         LevelStaticData GetLevel(string sceneKey);
     }

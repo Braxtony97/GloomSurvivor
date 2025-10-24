@@ -5,6 +5,6 @@ namespace GloomSurvivor.Scripts.Infrastructure
         public const string HeroPath = "Skeleton_King";
         public const string HudPath = "Hud";
         public const string LootPath = "Loots/Loot";
-        public const string SpawnerPath = "Enemies/SpawnPoint";
+        public const string SpawnerPath = "Enemies/Spawn/SpawnPoint";
     }
 }

@@ -38,15 +38,15 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
             _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _serviceLocator.RegisterSingle<IGameFactory>(new GameFactory(_serviceLocator.ResolveSingle<IAssetProvider>(), 
-                _serviceLocator.ResolveSingle<IStaticDataService>(),
-                _serviceLocator.ResolveSingle<IPersistentProgressService>()));
+            _serviceLocator.ResolveSingle<IStaticDataService>(),
+            _serviceLocator.ResolveSingle<IPersistentProgressService>()));
             _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService(_serviceLocator.ResolveSingle<IPersistentProgressService>(), _serviceLocator.ResolveSingle<IGameFactory>() ));
         }
 
         private void RegisterStaticData()
         {
             IStaticDataService staticDataService = new StaticDataService();
-            staticDataService.LoadMonsters();
+            staticDataService.Load();
             _serviceLocator.RegisterSingle(staticDataService);
         }
 
