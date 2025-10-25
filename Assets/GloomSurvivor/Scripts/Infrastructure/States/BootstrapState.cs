@@ -1,3 +1,5 @@
+using Assets.GloomSurvivor.Scripts.UI.Services;
+using Assets.GloomSurvivor.Scripts.UI.Services.Factory;
 using GloomSurvivor.Scripts.Data.SaveLoad;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
@@ -34,14 +36,27 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         private void RegisterService()
         {
             RegisterStaticData();
+
             _serviceLocator.RegisterSingle<IInputService>(InputService());
             _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
             _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+
+            _serviceLocator.RegisterSingle<IUIFactory>(new UIFactory(
+                _serviceLocator.ResolveSingle<IAssetProvider>(),
+                _serviceLocator.ResolveSingle<IStaticDataService>()
+                ));
+
+            _serviceLocator.RegisterSingle<IWindowService>(new WindowService(_serviceLocator.ResolveSingle<IUIFactory>()));
+
             _serviceLocator.RegisterSingle<IGameFactory>(new GameFactory(_serviceLocator.ResolveSingle<IAssetProvider>(), 
-            _serviceLocator.ResolveSingle<IStaticDataService>(),
-            _serviceLocator.ResolveSingle<IPersistentProgressService>()));
-            _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService(_serviceLocator.ResolveSingle<IPersistentProgressService>(), _serviceLocator.ResolveSingle<IGameFactory>() ));
-        }
+                _serviceLocator.ResolveSingle<IStaticDataService>(),_serviceLocator.ResolveSingle<IPersistentProgressService>(),
+                _serviceLocator.ResolveSingle<IWindowService>()
+                ));
+
+            _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService(_serviceLocator.ResolveSingle<IPersistentProgressService>(), 
+                _serviceLocator.ResolveSingle<IGameFactory>() 
+                ));
+        } 
 
         private void RegisterStaticData()
         {

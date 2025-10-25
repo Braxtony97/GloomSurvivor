@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Assets.GloomSurvivor.Scripts.UI.Services.Factory;
 using GloomSurvivor.Scripts.Data.SaveLoad;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
@@ -21,7 +22,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, serviceLocator),
                 [typeof(LoadSceneState)] = new LoadSceneState(this, sceneLoader, serviceLocator.ResolveSingle<IGameFactory>(), 
                 serviceLocator.ResolveSingle<IPersistentProgressService>(), 
-                serviceLocator.ResolveSingle<IStaticDataService>()),
+                serviceLocator.ResolveSingle<IStaticDataService>(), serviceLocator.ResolveSingle<IUIFactory>()),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator.ResolveSingle<IPersistentProgressService>(), 
                 serviceLocator.ResolveSingle<ISaveLoadService>())
             };

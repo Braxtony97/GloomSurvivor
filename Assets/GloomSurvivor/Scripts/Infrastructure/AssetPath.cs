@@ -6,5 +6,6 @@ namespace GloomSurvivor.Scripts.Infrastructure
         public const string HudPath = "Hud";
         public const string LootPath = "Loots/Loot";
         public const string SpawnerPath = "Enemies/Spawn/SpawnPoint";
+        public const string UIRootPath = "UI/UIRoot";
     }
 }

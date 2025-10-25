@@ -1,3 +1,5 @@
+using Assets.GloomSurvivor.Scripts.UI.Elements;
+using Assets.GloomSurvivor.Scripts.UI.Services;
 using GloomSurvivor.Scripts.Characters.Enemy;
 using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
@@ -24,12 +26,14 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         private readonly IAssetProvider _assetProvider;
         private IStaticDataService _staticData;
         private readonly IPersistentProgressService _progressService;
+        private readonly IWindowService _windowService;
 
-        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData, IPersistentProgressService progressService)
+        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData, IPersistentProgressService progressService, IWindowService windowService)
         {
             _assetProvider = assetProvider;
             _staticData = staticData;
             _progressService = progressService;
+            _windowService = windowService;
         }
 
         public GameObject CreateHero(GameObject initPoint)
@@ -43,8 +47,11 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             GameObject hud = InstantiateRegistered(AssetPath.HudPath);
             
             LootCounterUI lootCounterUI = hud.GetComponentInChildren<LootCounterUI>();
-            lootCounterUI.Construct(_progressService.Progress.WorldData); 
-            
+            lootCounterUI.Construct(_progressService.Progress.WorldData);
+
+            foreach (OpenWindowButton button in hud.GetComponentsInChildren<OpenWindowButton>())
+                button.Construct(_windowService);       
+
             return hud;
         }
 
