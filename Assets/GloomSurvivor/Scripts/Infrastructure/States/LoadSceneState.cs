@@ -1,3 +1,4 @@
+using Assets.GloomSurvivor.Scripts.UI.Services.Factory;
 using GloomSurvivor.Scripts.CameraLogic;
 using GloomSurvivor.Scripts.Characters.MainPlayer;
 using GloomSurvivor.Scripts.Infrastructure.Factory;
@@ -7,6 +8,7 @@ using GloomSurvivor.Scripts.Logic;
 using GloomSurvivor.Scripts.Services;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using GloomSurvivor.Scripts.UI;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,18 +21,20 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
         private const string EnemySpawnerTag = "EnemySpawner";
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
-        private IGameFactory _gameFactory;
+        private readonly IGameFactory _gameFactory;
+        private readonly IUIFactory _uiFactory;
         private readonly IPersistentProgressService _persistentProgressService;
         private readonly IStaticDataService _staticDataService;
 
-        public LoadSceneState(GameStateMachine stateMachine, SceneLoader sceneLoader, 
-            IGameFactory gameFactory, IPersistentProgressService persistentProgressService, IStaticDataService staticDataService)
+        public LoadSceneState(GameStateMachine stateMachine, SceneLoader sceneLoader,
+            IGameFactory gameFactory, IPersistentProgressService persistentProgressService, IStaticDataService staticDataService, IUIFactory uiFactory)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _gameFactory = gameFactory;
             _persistentProgressService = persistentProgressService;
             _staticDataService = staticDataService;
+            _uiFactory = uiFactory; 
         }
 
         public void Enter(string payload)
@@ -41,10 +45,13 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
         private void OnLoaded()
         {
+            InitUIRoot();
             InitGameWorld();
-
             InformProgressReaders();
         }
+
+        private void InitUIRoot() => 
+            _uiFactory.CreateUIRoot();
 
         private void InformProgressReaders()
         {

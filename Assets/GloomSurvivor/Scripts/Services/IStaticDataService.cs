@@ -1,11 +1,13 @@
+using Assets.GloomSurvivor.Scripts.Infrastructure.StaticData;
 using GloomSurvivor.Scripts.Services;
 
 namespace GloomSurvivor.Scripts.Infrastructure.StaticData
 {
     public interface IStaticDataService : IService
     {
-        void LoadMonsters();
+        void Load();
         MonsterStaticData GetMonster(Enums.MonsterTypeId monsterId);
         LevelStaticData GetLevel(string sceneKey);
+        WindowConfig GetWindow(Enums.WindowId windowId);
     }
 }
