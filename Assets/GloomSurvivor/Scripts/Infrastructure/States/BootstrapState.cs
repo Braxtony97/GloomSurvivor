@@ -43,7 +43,8 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
             _serviceLocator.RegisterSingle<IUIFactory>(new UIFactory(
                 _serviceLocator.ResolveSingle<IAssetProvider>(),
-                _serviceLocator.ResolveSingle<IStaticDataService>()
+                _serviceLocator.ResolveSingle<IStaticDataService>(),
+                _serviceLocator.ResolveSingle<IPersistentProgressService>()
                 ));
 
             _serviceLocator.RegisterSingle<IWindowService>(new WindowService(_serviceLocator.ResolveSingle<IUIFactory>()));
