@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using GloomSurvivor.Scripts.Infrastructure.Factory;
+using GloomSurvivor.Scripts.Services;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.GloomSurvivor.Scripts.UI.Windows
