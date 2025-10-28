@@ -36,9 +36,9 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             _windowService = windowService;
         }
 
-        public GameObject CreateHero(GameObject initPoint)
+        public GameObject CreateHero(Vector3 initPoint)
         {
-            HeroGameObject = InstantiateRegistered(AssetPath.HeroPath, initPoint.transform.position);
+            HeroGameObject = InstantiateRegistered(AssetPath.HeroPath, initPoint);
             return HeroGameObject;
         }
 

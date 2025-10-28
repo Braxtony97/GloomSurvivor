@@ -10,6 +10,8 @@ namespace GloomSurvivor.Scripts.Editor
     [CustomEditor(typeof(LevelStaticData))]
     public class LevelStaticDataEditor : UnityEditor.Editor
     {
+        private const string InitialPointTag = "InitialPoint";
+
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -24,6 +26,8 @@ namespace GloomSurvivor.Scripts.Editor
                     .ToList();
 
                 levelData.LevelKey = SceneManager.GetActiveScene().name;
+
+                levelData.InitialPointHero = GameObject.FindWithTag(InitialPointTag).transform.position;
             }
 
             EditorUtility.SetDirty(target);

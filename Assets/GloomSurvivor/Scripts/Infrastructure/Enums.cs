@@ -5,7 +5,8 @@ namespace GloomSurvivor.Scripts.Infrastructure
         public enum Scenes
         {
             Boot,
-            Main
+            Main,
+            Dust
         }
         
         public enum AnimatorState
