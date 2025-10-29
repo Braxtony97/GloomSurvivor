@@ -1,9 +1,11 @@
+using Assets.GloomSurvivor.Scripts.Logic.LevelTransferTriggerSpawner;
 using Assets.GloomSurvivor.Scripts.UI.Elements;
 using Assets.GloomSurvivor.Scripts.UI.Services;
 using GloomSurvivor.Scripts.Characters.Enemy;
 using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Infrastructure.States;
 using GloomSurvivor.Scripts.Infrastructure.StaticData;
 using GloomSurvivor.Scripts.Logic;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
@@ -27,13 +29,15 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         private IStaticDataService _staticData;
         private readonly IPersistentProgressService _progressService;
         private readonly IWindowService _windowService;
+        private readonly IGameStateMachine _gameStateMachine;
 
-        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData, IPersistentProgressService progressService, IWindowService windowService)
+        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData, IPersistentProgressService progressService, IWindowService windowService, IGameStateMachine gameStateMachine)
         {
             _assetProvider = assetProvider;
             _staticData = staticData;
             _progressService = progressService;
             _windowService = windowService;
+            _gameStateMachine = gameStateMachine;
         }
 
         public GameObject CreateHero(Vector3 initPoint)
@@ -74,6 +78,18 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 
             spawner.Id = spawnerData.Id;
             spawner.MonsterTypeId = spawnerData.Type;
+        }
+
+        public void CreateLevelTransferSpawner(LevelTransferSpawnerData spawnerData)
+        {
+            LevelTransferTrigger levelTransferPoint = InstantiateRegistered(AssetPath.LevelTransferPath, spawnerData.Position)
+                .GetComponent<LevelTransferTrigger>();
+
+            levelTransferPoint.Construct(_gameStateMachine);
+
+
+            levelTransferPoint.Scene = spawnerData.Scene;
+            levelTransferPoint.Id = spawnerData.Id;
         }
 
         private GameObject InstantiateRegistered(string prefabPath, Vector3 at)

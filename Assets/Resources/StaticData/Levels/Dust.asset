@@ -15,3 +15,7 @@ MonoBehaviour:
   LevelKey: Dust
   EnemySpawners: []
   InitialPointHero: {x: 0, y: 2.05, z: 0}
+  LevelTransferSpawners:
+  - Id: Main_35cfef8e-dbb8-476a-9f84-b6766c58ccf8
+    Scene: 1
+    Position: {x: 24.87, y: 1.35, z: -2.83}

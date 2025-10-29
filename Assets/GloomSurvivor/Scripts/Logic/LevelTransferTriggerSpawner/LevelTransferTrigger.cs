@@ -3,19 +3,20 @@ using GloomSurvivor.Scripts.Infrastructure.States;
 using GloomSurvivor.Scripts.Services;
 using UnityEngine;
 
-namespace Assets.GloomSurvivor.Scripts.Logic
+namespace Assets.GloomSurvivor.Scripts.Logic.LevelTransferTriggerSpawner
 {
     public class LevelTransferTrigger : MonoBehaviour
     {
-        public Enums.Scenes Scene;
+        [HideInInspector] public Enums.Scenes Scene;
+        [HideInInspector] public string Id;
 
         private const string PlayerTag = "Player";
         private IGameStateMachine _gameStateMachine;
         private bool _triggered;
 
-        public void Start()
+        public void Construct(IGameStateMachine gameStateMachine)
         {
-            _gameStateMachine = ServiceLocator.Instance.ResolveSingle<IGameStateMachine>(); //TEMP
+            _gameStateMachine = gameStateMachine;
         }
 
         public void OnTriggerEnter(Collider other)  

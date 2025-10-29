@@ -52,7 +52,8 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
             _serviceLocator.RegisterSingle<IGameFactory>(new GameFactory(_serviceLocator.ResolveSingle<IAssetProvider>(), 
                 _serviceLocator.ResolveSingle<IStaticDataService>(),_serviceLocator.ResolveSingle<IPersistentProgressService>(),
-                _serviceLocator.ResolveSingle<IWindowService>()
+                _serviceLocator.ResolveSingle<IWindowService>(),
+                _serviceLocator.ResolveSingle<IGameStateMachine>()
                 ));
 
             _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService(_serviceLocator.ResolveSingle<IPersistentProgressService>(), 

@@ -1,3 +1,4 @@
+using Assets.GloomSurvivor.Scripts.Logic.LevelTransferTriggerSpawner;
 using GloomSurvivor.Scripts.Infrastructure.StaticData;
 using GloomSurvivor.Scripts.Logic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace GloomSurvivor.Scripts.Editor
     public class LevelStaticDataEditor : UnityEditor.Editor
     {
         private const string InitialPointTag = "InitialPoint";
+        private const string LevelTransferTriggerTag = "LevelTransferTrigger";
 
         public override void OnInspectorGUI()
         {
@@ -28,6 +30,11 @@ namespace GloomSurvivor.Scripts.Editor
                 levelData.LevelKey = SceneManager.GetActiveScene().name;
 
                 levelData.InitialPointHero = GameObject.FindWithTag(InitialPointTag).transform.position;
+
+                levelData.LevelTransferSpawners =
+                    FindObjectsOfType<LevelTransferMarker>()
+                    .Select(x => new LevelTransferSpawnerData(x.GetComponent<UniqueIdLevelTransferSpawner>().Id, x.Scene, x.transform.position))
+                    .ToList();
             }
 
             EditorUtility.SetDirty(target);

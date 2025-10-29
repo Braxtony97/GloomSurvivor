@@ -20,6 +20,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         GameObject CreateMonster(Enums.MonsterTypeId monsterTypeId, Transform parent);
         LootHandler CreateLoot();
         void RestoreLoot(Progress progress);
-        void CreateSpawner(EnemySpawnerData spawner);
+        void CreateSpawner(EnemySpawnerData spawner); 
+        void CreateLevelTransferSpawner(LevelTransferSpawnerData spawner);
     }
 }

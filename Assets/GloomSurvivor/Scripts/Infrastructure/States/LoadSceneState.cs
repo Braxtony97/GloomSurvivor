@@ -64,6 +64,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             LevelStaticData levelData = GetCurrentLevelStaticData();
 
             InitSpawners(levelData);
+            InitLevelTransferSpawner(levelData);
 
             var hero = _gameFactory.CreateHero(levelData.InitialPointHero);
             InitHud(hero);
@@ -72,6 +73,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
             CameraFollowHero(hero);
         }
+
 
         private void InitHud(GameObject hero)
         {
@@ -86,6 +88,12 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             {
                 _gameFactory.CreateSpawner(spawner);
             }
+        }
+
+        private void InitLevelTransferSpawner(LevelStaticData levelData)
+        {
+            foreach (LevelTransferSpawnerData spawner in levelData.LevelTransferSpawners)
+                _gameFactory.CreateLevelTransferSpawner(spawner); 
         }
 
         private LevelStaticData GetCurrentLevelStaticData()
