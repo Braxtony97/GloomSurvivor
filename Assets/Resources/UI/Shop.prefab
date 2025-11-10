@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloseButton: {fileID: 4644812498990490567}
+  _countGold: {fileID: 4149796757838089956}
 --- !u!1 &3505622778190188286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,6 +1853,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6059516104701433437, guid: 51c446d6daffe354e800e592171fa762, type: 3}
   m_PrefabInstance: {fileID: 8233104306641692695}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4149796757838089956 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5464791132579571443, guid: 51c446d6daffe354e800e592171fa762, type: 3}
+  m_PrefabInstance: {fileID: 8233104306641692695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4644812498990490567 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3617636132403186640, guid: 51c446d6daffe354e800e592171fa762, type: 3}

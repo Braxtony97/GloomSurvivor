@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using GloomSurvivor.Scripts.Data;
+using GloomSurvivor.Scripts.Services.PersistentProgress;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.GloomSurvivor.Scripts.UI.Windows
@@ -7,14 +9,32 @@ namespace Assets.GloomSurvivor.Scripts.UI.Windows
     {
         public Button CloseButton;
 
-        private void Awake()
+        protected Progress Progress => ProgressService.Progress;
+        protected IPersistentProgressService ProgressService;
+
+        public void Construct(IPersistentProgressService progressService)
         {
-            OnAwake();
+            ProgressService = progressService;
         }
 
-        protected virtual void OnAwake()
+        private void Start()
         {
-            CloseButton.onClick.AddListener(() => Destroy(gameObject));
+            Initialize();
+            SubscribeUpdates();
         }
+
+        private void Awake() => 
+            OnAwake();
+
+        protected virtual void OnAwake() => 
+            CloseButton.onClick.AddListener(() => Destroy(gameObject));
+
+        protected virtual void Initialize(){}
+        protected virtual void SubscribeUpdates(){}
+        protected virtual void UnsubscribeUpdates(){}
+
+        private void OnDestroy() => 
+            UnsubscribeUpdates();
+
     }
 }

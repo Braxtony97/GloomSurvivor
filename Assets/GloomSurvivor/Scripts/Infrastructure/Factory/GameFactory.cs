@@ -1,15 +1,18 @@
+using Assets.GloomSurvivor.Scripts.Logic.LevelTransferTriggerSpawner;
 using Assets.GloomSurvivor.Scripts.UI.Elements;
 using Assets.GloomSurvivor.Scripts.UI.Services;
 using GloomSurvivor.Scripts.Characters.Enemy;
 using GloomSurvivor.Scripts.Data;
 using GloomSurvivor.Scripts.Infrastructure.AssetManagment;
 using GloomSurvivor.Scripts.Infrastructure.Interfaces;
+using GloomSurvivor.Scripts.Infrastructure.States;
 using GloomSurvivor.Scripts.Infrastructure.StaticData;
 using GloomSurvivor.Scripts.Logic;
 using GloomSurvivor.Scripts.Services.PersistentProgress;
 using GloomSurvivor.Scripts.UI;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 using Object = UnityEngine.Object;
@@ -27,24 +30,31 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         private IStaticDataService _staticData;
         private readonly IPersistentProgressService _progressService;
         private readonly IWindowService _windowService;
+        private readonly IGameStateMachine _gameStateMachine;
 
-        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData, IPersistentProgressService progressService, IWindowService windowService)
+        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData, IPersistentProgressService progressService, IWindowService windowService, IGameStateMachine gameStateMachine)
         {
             _assetProvider = assetProvider;
             _staticData = staticData;
             _progressService = progressService;
             _windowService = windowService;
+            _gameStateMachine = gameStateMachine;
         }
 
-        public GameObject CreateHero(GameObject initPoint)
+        public void WarmUp()
         {
-            HeroGameObject = InstantiateRegistered(AssetPath.HeroPath, initPoint.transform.position);
+            
+        }
+
+        public GameObject CreateHero(Vector3 initPoint)
+        {
+            HeroGameObject = InstantiateRegistered(AssetAddress.HeroPath, initPoint);
             return HeroGameObject;
         }
 
         public GameObject CreateHud()
         {
-            GameObject hud = InstantiateRegistered(AssetPath.HudPath);
+            GameObject hud = InstantiateRegistered(AssetAddress.HudPath);
             
             LootCounterUI lootCounterUI = hud.GetComponentInChildren<LootCounterUI>();
             lootCounterUI.Construct(_progressService.Progress.WorldData);
@@ -57,7 +67,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 
         public LootHandler CreateLoot()
         {
-            LootHandler loot = InstantiateRegistered(AssetPath.LootPath)
+            LootHandler loot = InstantiateRegistered(AssetAddress.LootPath)
                 .GetComponent<LootHandler>();
             
             loot.Construct(_progressService.Progress.WorldData);
@@ -67,13 +77,25 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 
         public void CreateSpawner(EnemySpawnerData spawnerData)
         {
-            SpawnPoint spawner = InstantiateRegistered(AssetPath.SpawnerPath, spawnerData.Position)
+            SpawnPoint spawner = InstantiateRegistered(AssetAddress.SpawnerPath, spawnerData.Position)
                 .GetComponent<SpawnPoint>();
 
             spawner.Construct(this);
 
             spawner.Id = spawnerData.Id;
             spawner.MonsterTypeId = spawnerData.Type;
+        }
+
+        public void CreateLevelTransferSpawner(LevelTransferSpawnerData spawnerData)
+        {
+            LevelTransferTrigger levelTransferPoint = InstantiateRegistered(AssetAddress.LevelTransferPath, spawnerData.Position)
+                .GetComponent<LevelTransferTrigger>();
+
+            levelTransferPoint.Construct(_gameStateMachine);
+
+
+            levelTransferPoint.Scene = spawnerData.Scene;
+            levelTransferPoint.Id = spawnerData.Id;
         }
 
         private GameObject InstantiateRegistered(string prefabPath, Vector3 at)
@@ -104,10 +126,15 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             ProgressReaders.Add(progressReader);
         }
 
-        public GameObject CreateMonster(Enums.MonsterTypeId monsterTypeId, Transform parent)
+        public async Task<GameObject> CreateMonsterAsync(Enums.MonsterTypeId monsterTypeId, Transform parent)
         {
             MonsterStaticData monsterStaticData = _staticData.GetMonster(monsterTypeId);
-            GameObject monster = Object.Instantiate(monsterStaticData.Prefab, parent.position, Quaternion.identity, parent);
+
+            GameObject prefab = await monsterStaticData.PrefabRefernce
+                .LoadAssetAsync()
+                .Task;
+
+            GameObject monster = Object.Instantiate(prefab, parent.position, Quaternion.identity, parent);
 
             IHealth health = monster.GetComponent<IHealth>();
 

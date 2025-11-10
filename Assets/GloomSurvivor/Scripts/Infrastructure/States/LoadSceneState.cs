@@ -61,27 +61,46 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
         private void InitGameWorld()
         {
-            InitSpawners();
-            
-            var hero = _gameFactory.CreateHero(GameObject.FindWithTag("InitialPoint"));
-            var hud = _gameFactory.CreateHud();
+            LevelStaticData levelData = GetCurrentLevelStaticData();
 
-            hud.GetComponentInChildren<ActorHpBarUI>().Construct(hero.GetComponent<IHealth>());
+            InitSpawners(levelData);
+            InitLevelTransferSpawner(levelData);
+
+            var hero = _gameFactory.CreateHero(levelData.InitialPointHero);
+            InitHud(hero);
 
             _gameFactory.RestoreLoot(_persistentProgressService.Progress);
-            
+
             CameraFollowHero(hero);
         }
 
-        private void InitSpawners()
-        {
-            string sceneKey = SceneManager.GetActiveScene().name;
-            LevelStaticData levelData = _staticDataService.GetLevel(sceneKey);
 
+        private void InitHud(GameObject hero)
+        {
+            GameObject hud = _gameFactory.CreateHud();
+            hud.GetComponentInChildren<ActorHpBarUI>().
+                Construct(hero.GetComponent<IHealth>());
+        }
+
+        private void InitSpawners(LevelStaticData levelData)
+        {
             foreach (EnemySpawnerData spawner in levelData.EnemySpawners)
             {
                 _gameFactory.CreateSpawner(spawner);
             }
+        }
+
+        private void InitLevelTransferSpawner(LevelStaticData levelData)
+        {
+            foreach (LevelTransferSpawnerData spawner in levelData.LevelTransferSpawners)
+                _gameFactory.CreateLevelTransferSpawner(spawner); 
+        }
+
+        private LevelStaticData GetCurrentLevelStaticData()
+        {
+            string sceneKey = SceneManager.GetActiveScene().name;
+            LevelStaticData levelData = _staticDataService.GetLevel(sceneKey);
+            return levelData;
         }
 
         private void CameraFollowHero(GameObject hero)

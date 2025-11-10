@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace GloomSurvivor.Scripts.Infrastructure.StaticData
 {
@@ -19,7 +20,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.StaticData
         [Range(0.5f, 1)]
         public float EffectiveDistance;
         
-        public GameObject Prefab;
+        public AssetReferenceGameObject PrefabRefernce;
         
         [Range(1, 20)]
         public float MoveSpeed;

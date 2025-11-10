@@ -10,7 +10,7 @@ using GloomSurvivor.Scripts.Services.PersistentProgress;
 
 namespace GloomSurvivor.Scripts.Infrastructure.States
 {
-    public class GameStateMachine
+    public class GameStateMachine : IGameStateMachine
     {
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _currentState;
@@ -20,10 +20,10 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
             _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, serviceLocator),
-                [typeof(LoadSceneState)] = new LoadSceneState(this, sceneLoader, serviceLocator.ResolveSingle<IGameFactory>(), 
-                serviceLocator.ResolveSingle<IPersistentProgressService>(), 
+                [typeof(LoadSceneState)] = new LoadSceneState(this, sceneLoader, serviceLocator.ResolveSingle<IGameFactory>(),
+                serviceLocator.ResolveSingle<IPersistentProgressService>(),
                 serviceLocator.ResolveSingle<IStaticDataService>(), serviceLocator.ResolveSingle<IUIFactory>()),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator.ResolveSingle<IPersistentProgressService>(), 
+                [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator.ResolveSingle<IPersistentProgressService>(),
                 serviceLocator.ResolveSingle<ISaveLoadService>())
             };
         }
@@ -36,14 +36,14 @@ namespace GloomSurvivor.Scripts.Infrastructure.States
 
         public void Enter<TState>() where TState : IState
         {
-            var state = GetState<TState>(); 
+            var state = GetState<TState>();
             state.Enter();
         }
 
         private TState GetState<TState>() where TState : IExitableState
         {
-            _currentState?.Exit(); 
-            var state = (TState) _states[typeof(TState)];
+            _currentState?.Exit();
+            var state = (TState)_states[typeof(TState)];
             _currentState = state;
             return state;
         }
