@@ -14,7 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 2125e27f9d3dd3940a3edce451a58e5f
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 013b2a9db8ac2374185995a483c88a96
+    m_Address: Loot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bbfae9f78abc6b4db922a4441fffded
+    m_Address: Skeleton_Mage
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4beeaa4093602674d8b279c2f62fa0bf
+    m_Address: Skeleton_Crossbowman
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 806c9f050085860479b726d900454d5f
+    m_Address: Skeleton_Swordman
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa3bf77f9f411e249917ccd0aef6bbd6
+    m_Address: SpawnPoint
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: be50ee8c33878774085bab0b3ac2e2b9, type: 2}
   m_SchemaSet:

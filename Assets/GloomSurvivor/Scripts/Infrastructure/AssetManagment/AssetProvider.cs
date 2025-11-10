@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace GloomSurvivor.Scripts.Infrastructure.AssetManagment
@@ -14,6 +15,11 @@ namespace GloomSurvivor.Scripts.Infrastructure.AssetManagment
         {
             var prefab = Resources.Load<GameObject>(path);
             return Object.Instantiate(prefab, at, Quaternion.identity);
+        }
+
+        public Task Load<T>(string address)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

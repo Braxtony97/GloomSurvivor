@@ -18,5 +18,10 @@ MonoBehaviour:
   MaxLoot: 5
   MinLoot: 1
   EffectiveDistance: 0.5
-  Prefab: {fileID: 8206350644790170980, guid: 806c9f050085860479b726d900454d5f, type: 3}
+  PrefabRefernce:
+    m_AssetGUID: 806c9f050085860479b726d900454d5f
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1
   MoveSpeed: 3

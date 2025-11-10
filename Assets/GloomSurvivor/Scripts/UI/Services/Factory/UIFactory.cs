@@ -31,6 +31,6 @@ namespace Assets.GloomSurvivor.Scripts.UI.Services.Factory
         }
 
         public void CreateUIRoot() => 
-            _uiRoot = _assetProvider.Instantiate(AssetPath.UIRootPath).transform;
+            _uiRoot = _assetProvider.Instantiate(AssetAddress.UIRootPath).transform;
     }
 }

@@ -12,6 +12,7 @@ using GloomSurvivor.Scripts.Services.PersistentProgress;
 using GloomSurvivor.Scripts.UI;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 using Object = UnityEngine.Object;
@@ -40,15 +41,20 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             _gameStateMachine = gameStateMachine;
         }
 
+        public void WarmUp()
+        {
+            
+        }
+
         public GameObject CreateHero(Vector3 initPoint)
         {
-            HeroGameObject = InstantiateRegistered(AssetPath.HeroPath, initPoint);
+            HeroGameObject = InstantiateRegistered(AssetAddress.HeroPath, initPoint);
             return HeroGameObject;
         }
 
         public GameObject CreateHud()
         {
-            GameObject hud = InstantiateRegistered(AssetPath.HudPath);
+            GameObject hud = InstantiateRegistered(AssetAddress.HudPath);
             
             LootCounterUI lootCounterUI = hud.GetComponentInChildren<LootCounterUI>();
             lootCounterUI.Construct(_progressService.Progress.WorldData);
@@ -61,7 +67,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 
         public LootHandler CreateLoot()
         {
-            LootHandler loot = InstantiateRegistered(AssetPath.LootPath)
+            LootHandler loot = InstantiateRegistered(AssetAddress.LootPath)
                 .GetComponent<LootHandler>();
             
             loot.Construct(_progressService.Progress.WorldData);
@@ -71,7 +77,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 
         public void CreateSpawner(EnemySpawnerData spawnerData)
         {
-            SpawnPoint spawner = InstantiateRegistered(AssetPath.SpawnerPath, spawnerData.Position)
+            SpawnPoint spawner = InstantiateRegistered(AssetAddress.SpawnerPath, spawnerData.Position)
                 .GetComponent<SpawnPoint>();
 
             spawner.Construct(this);
@@ -82,7 +88,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
 
         public void CreateLevelTransferSpawner(LevelTransferSpawnerData spawnerData)
         {
-            LevelTransferTrigger levelTransferPoint = InstantiateRegistered(AssetPath.LevelTransferPath, spawnerData.Position)
+            LevelTransferTrigger levelTransferPoint = InstantiateRegistered(AssetAddress.LevelTransferPath, spawnerData.Position)
                 .GetComponent<LevelTransferTrigger>();
 
             levelTransferPoint.Construct(_gameStateMachine);
@@ -120,10 +126,15 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
             ProgressReaders.Add(progressReader);
         }
 
-        public GameObject CreateMonster(Enums.MonsterTypeId monsterTypeId, Transform parent)
+        public async Task<GameObject> CreateMonsterAsync(Enums.MonsterTypeId monsterTypeId, Transform parent)
         {
             MonsterStaticData monsterStaticData = _staticData.GetMonster(monsterTypeId);
-            GameObject monster = Object.Instantiate(monsterStaticData.Prefab, parent.position, Quaternion.identity, parent);
+
+            GameObject prefab = await monsterStaticData.PrefabRefernce
+                .LoadAssetAsync()
+                .Task;
+
+            GameObject monster = Object.Instantiate(prefab, parent.position, Quaternion.identity, parent);
 
             IHealth health = monster.GetComponent<IHealth>();
 
