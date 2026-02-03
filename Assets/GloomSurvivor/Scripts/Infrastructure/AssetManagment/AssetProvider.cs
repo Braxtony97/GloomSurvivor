@@ -9,13 +9,19 @@ namespace GloomSurvivor.Scripts.Infrastructure.AssetManagment
     public class AssetProvider : IAssetProvider
     {
         private readonly Dictionary<string, AsyncOperationHandle> _complitedCache = new Dictionary<string, AsyncOperationHandle>();
+        
+        /// <summary>
+        /// Для каждого ресурса assetRefernce.AssetGUID содержит все его асинхронные операции, которые вызвались
+        /// </summary>
         private readonly Dictionary<string, List<AsyncOperationHandle>> _handles;
-
+        
         public async Task<T> Load<T>(AssetReference assetRefernce)
         {
+            // Если в кэше есть такой указатель, то вернет
             if (_complitedCache.TryGetValue(assetRefernce.AssetGUID, out AsyncOperationHandle complitedHandle))
                 return (T)complitedHandle.Result;
-
+            
+            // handle: ссылка на объект, который обязятально нужно релизить (совобождать)
             AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(assetRefernce);
             handle.Completed += h =>
             {
@@ -40,6 +46,19 @@ namespace GloomSurvivor.Scripts.Infrastructure.AssetManagment
             return Object.Instantiate(prefab, at, Quaternion.identity);
         }
 
+        /// <summary>
+        /// Метод для освобождения ресурсов
+        /// </summary>
+        public void CleanUp()
+        {
+            foreach (List<AsyncOperationHandle> resourceHandles in _handles.Values)
+            foreach (AsyncOperationHandle resourceHandle in resourceHandles) 
+                Addressables.Release(resourceHandle);
+        }
+
+        /// <summary>
+        /// Добавление листа запросов в словарь по ключу
+        /// </summary>
         private void AddHandle<T>(string key, AsyncOperationHandle<T> handle)
         {
             if (!_handles.TryGetValue(key, out List<AsyncOperationHandle> resourceHandles))
@@ -50,6 +69,5 @@ namespace GloomSurvivor.Scripts.Infrastructure.AssetManagment
 
             resourceHandles.Add(handle);
         }
-
     }
 }

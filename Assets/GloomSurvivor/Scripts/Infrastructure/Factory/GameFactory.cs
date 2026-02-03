@@ -175,6 +175,8 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         {
             ProgressReaders.Clear();
             ProgressWriters.Clear();
+            
+            _assetProvider.CleanUp();
         }
     }
 }

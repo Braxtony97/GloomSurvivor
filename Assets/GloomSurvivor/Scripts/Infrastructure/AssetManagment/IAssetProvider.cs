@@ -10,5 +10,10 @@ namespace GloomSurvivor.Scripts.Infrastructure.AssetManagment
         GameObject Instantiate(string path);
         GameObject Instantiate(string path, Vector3 at);
         Task<T> Load<T>(AssetReference assetRefernce);
+
+        /// <summary>
+        /// Метод для освобождения ресурсов
+        /// </summary>
+        void CleanUp();
     }
 }
