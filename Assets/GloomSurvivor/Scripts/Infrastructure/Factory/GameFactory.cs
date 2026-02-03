@@ -130,9 +130,7 @@ namespace GloomSurvivor.Scripts.Infrastructure.Factory
         {
             MonsterStaticData monsterStaticData = _staticData.GetMonster(monsterTypeId);
 
-            GameObject prefab = await monsterStaticData.PrefabRefernce
-                .LoadAssetAsync()
-                .Task;
+            GameObject prefab = await _assetProvider.Load<GameObject>(monsterStaticData.PrefabRefernce);
 
             GameObject monster = Object.Instantiate(prefab, parent.position, Quaternion.identity, parent);
 

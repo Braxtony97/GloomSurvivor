@@ -1,6 +1,7 @@
 using GloomSurvivor.Scripts.Services;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace GloomSurvivor.Scripts.Infrastructure.AssetManagment
 {
@@ -8,6 +9,6 @@ namespace GloomSurvivor.Scripts.Infrastructure.AssetManagment
     {
         GameObject Instantiate(string path);
         GameObject Instantiate(string path, Vector3 at);
-        Task Load<T>(string address);
+        Task<T> Load<T>(AssetReference assetRefernce);
     }
 }

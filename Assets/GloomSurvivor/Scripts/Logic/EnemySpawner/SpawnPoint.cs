@@ -19,6 +19,10 @@ namespace GloomSurvivor.Scripts.Logic
         public void Construct(IGameFactory gameFactory) => 
             _factory = gameFactory;
 
+        
+        /// <summary>
+        /// Spawn() делает асинхронный вызов. Игра загрузится, спавнеры какое-то время будут пустыми, и после появятся монстры
+        /// </summary>
         public void LoadProgress(Progress progress)
         {
             if (progress.KillData.ClearedSpawners.Contains(Id))
@@ -26,7 +30,10 @@ namespace GloomSurvivor.Scripts.Logic
             else
                 Spawn();
         }
-
+        
+        /// <summary>
+        /// void (не Task) - т.к никто не будет ожидать выполнения метода Spawn
+        /// </summary>
         private async void Spawn()
         {
             GameObject monster = await _factory.CreateMonsterAsync(MonsterTypeId, transform);
